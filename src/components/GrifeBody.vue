@@ -77,7 +77,7 @@ export default {
         }
     },
 
-    created () {
+    created() {
         this.srcTabela = tabelaMedidas;
     },
 
@@ -105,21 +105,21 @@ export default {
 
         <v-row class="title-row info-row align-center justify-center mt-10">
             <div class="icon-text d-flex flex-column align-center justify-center ml-12">
-                <v-icon icon="mdi-whatsapp" size="x-large" color="gray"></v-icon>
+                <v-icon icon="mdi-whatsapp" size="large" color="gray"></v-icon>
                 <h3 class="info-icon mt-2 ">
                     Solicite agora
                 </h3>
             </div>
 
             <div class="icon-text d-flex flex-column align-center justify-center">
-                <v-icon icon="mdi-heart-outline" size="x-large" color="gray"></v-icon>
+                <v-icon icon="mdi-heart-outline" size="large" color="gray"></v-icon>
                 <h3 class="info-icon mt-2">
                     Amado pelos donos de pet
                 </h3>
             </div>
 
             <div class="icon-text d-flex flex-column align-center justify-center">
-                <v-icon icon="mdi-paw" size="x-large" color="gray"></v-icon>
+                <v-icon icon="mdi-paw" size="large" color="gray"></v-icon>
                 <h3 class="info-icon mt-2">
                     Combine com seu bichinho
                 </h3>
@@ -143,27 +143,31 @@ export default {
             <v-col cols="8" class="left-col pa-10 ml-5">
                 <v-row class="img-row align-center justify-center">
                     <div v-for="(item, index) in shirts1" class="img-row elevation-1">
-                        <v-img :width="350" :height="450" aspect-ratio="16/9" cover class="other-img"
-                            :src="item.imageSrc">
-                        </v-img>
+                        <div class="img-wrapper2">
+                            <v-img :width="350" :height="450" aspect-ratio="16/9" cover class="other-img"
+                                :src="item.imageSrc">
+                            </v-img>
+                        </div>
+
                     </div>
                 </v-row>
 
                 <v-row class="img-row align-center justify-center mt-10">
                     <div v-for="(item, index) in shirts2" class="img-row elevation-1">
-                        <v-img :width="350" :height="450" aspect-ratio="16/9" cover class="other-img"
-                            :src="item.imageSrc">
-                        </v-img>
+                        <div class="img-wrapper2">
+                            <v-img :width="350" :height="450" aspect-ratio="16/9" cover class="other-img"
+                                :src="item.imageSrc">
+                            </v-img>
+                        </div>
                     </div>
                 </v-row>
             </v-col>
             <v-col cols="3" class="right-col ml-12 d-flex flex-column mt-7 pt-10 elevation-2">
                 <div class="img-wrapper mx-auto mt-5">
-                    <v-img :width="210" aspect-ratio="16/9" contain class="logo-img"
-                        src="../assets/imgs/logo.png">
+                    <v-img :width="210" aspect-ratio="16/9" contain class="logo-img" src="../assets/imgs/logo.png">
                     </v-img>
                 </div>
-                <div class="icon-text d-flex flex-row mt-12 ml-5">
+                <div class="icon-text first-icon d-flex flex-row mt-12 ml-5">
                     <v-icon icon="mdi-whatsapp" size="large" color="gray" class="mt-2"></v-icon>
                     <h3 class="info-card mt-2 ml-1">
                         Consulte disponibilidade
@@ -337,5 +341,60 @@ export default {
     margin-top: 7vh;
     margin-left: 9.5vw;
     /* Adjust as needed */
+}
+
+@media (max-width: 1600px) {
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .data-text {
+        font-size: 1.1rem !important;
+    }
+
+    .left-col{
+        padding: 0 !important;
+        margin-top:7vh;
+        margin-bottom: 10vh;
+    }
+
+    .icon-text {
+        font-size: 0.8rem;
+    }
+
+    .img-wrapper2{
+        width: 20vw !important;
+        height: 30vw;
+    }
+
+    .img-wrapper{
+        width: 8vw !important;
+        height: 8vw !important;
+        margin-top: 0vh !important;
+    }
+
+    .first-icon{
+        margin-top: 0vh !important;
+    }
+
+    .info-card{
+        font-size: 0.8rem;
+    }
+
+    .text-size{
+        font-size: 0.7rem;
+    }
+
+    .size-letter{
+        font-size : 0.6rem;
+        width: auto !important;
+        padding: 0 1vw !important;
+
+    }
+
+    .confira-btn{
+        font-size: 0.81rem;
+    }
 }
 </style>

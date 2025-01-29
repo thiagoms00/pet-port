@@ -29,7 +29,7 @@ export default {
     <v-container fluid class="pa-10 ma-0 d-flex align-center contact-row">
         <v-col cols="6" class="cont-col left-col d-flex">
             <div class="test-img">
-                <v-img :width="1000" aspect-ratio="16/9" cover class="logo-pata" src="../assets/imgs/pata-logo.png">
+                <v-img :width="900" aspect-ratio="16/9" cover class="logo-pata" src="../assets/imgs/pata-logo.png">
                 </v-img>
             </div>
 
@@ -48,14 +48,23 @@ export default {
             <v-icon icon="mdi-arrow-left-drop-circle-outline" class="arrow-icon" size="x-large"
                 @click="selectedSlide = selectedSlide == 's1' ? 's2' : 's1'"> </v-icon>
             <div class="car-wraper d-flex align-center justify-center">
-                <div v-for="(item, index) in slidePaths1" v-if="selectedSlide == 's1'" class="d-fleximage-group first-group">
-                    <v-img :width="200" :height="180" aspect-ratio="16/9" cover class="brand-img ml-10" :src="slidePaths1[index]">
-                    </v-img>
+
+                <div v-for="(item, index) in slidePaths1" v-if="selectedSlide == 's1'"
+                    class="d-fleximage-group first-group">
+                    <div class="img-wrapper">
+                        <v-img :width="200" :height="180" aspect-ratio="16/9" cover class="brand-img ml-10"
+                            :src="slidePaths1[index]">
+                        </v-img>
+                    </div>
+
                 </div>
 
                 <div v-for="(item, index) in slidePaths2" v-if="selectedSlide == 's2'" class="image-group">
-                    <v-img :width="200" :height="180"    aspect-ratio="16/9" cover class="brand-img" :src="slidePaths2[index]">
-                    </v-img>
+                    <div class="img-wrapper">
+                        <v-img :width="200" :height="180" aspect-ratio="16/9" cover class="brand-img"
+                            :src="slidePaths2[index]">
+                        </v-img>
+                    </div>
                 </div>
             </div>
 
@@ -80,7 +89,7 @@ export default {
     width: 35vw;
 }
 
-.first-group{
+.first-group {
     gap: 4vw;
 }
 
@@ -134,6 +143,7 @@ export default {
 
 .brand-img {
     opacity: 0.7;
+    max-width: 100% !important;
     transition: 0.2s opacity ease-in;
 }
 
@@ -168,5 +178,28 @@ export default {
 .fade-slide-enter-to {
     opacity: 1;
     transform: translateX(0);
+}
+
+
+@media (max-width : 1600px) {
+    .contact-text {
+        font-size: 1.9rem;
+        margin-left: 0vw !important;
+        margin-top: 3vh !important;
+    }
+
+    .contact-btn {
+        font-size: 0.9rem;
+        margin-top: 2vh !important;
+    }
+
+    .img-wrapper{
+        width: 11vw;
+        height: 8vw;
+    }
+
+    .form-div{
+        margin-left: 1vw !important;
+    }
 }
 </style>

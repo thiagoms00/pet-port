@@ -79,12 +79,12 @@ export default {
             <v-col cols="2" class="d-flex flex-column align-center">
                 <v-icon icon="mdi-map-marker" color="white" size="x-large" rounded="xl"></v-icon>
                 <h1 class="contact-text">Unidade 1 - Santa Tereza</h1>
-                <v-btn class="contact-btn" variant="outlined" @click="openLocation('h1')">Rua Jaspe 8 | BH-MG </v-btn>
+                <v-btn class="contact-btn" variant="outlined" @click="openLocation('h1')">Rua Jaspe 8 </v-btn>
             </v-col>
-            <v-col cols="2" class="d-flex flex-column align-center">
+            <v-col cols="3" class="d-flex flex-column align-center">
                 <v-icon icon="mdi-map-marker" color="white" size="x-large" rounded="xl"></v-icon>
                 <h1 class="contact-text">Unidade 2 - Sagrada Família</h1>
-                <v-btn class="contact-btn" variant="outlined" @click="openLocation('h2')">Rua João guelberto filho 1258 </v-btn>
+                <v-btn class="contact-btn" variant="outlined" @click="openLocation('h2')">Rua João Guelberto filho 1258 </v-btn>
             </v-col>
             <v-col cols="2" class="d-flex flex-column align-center">
                 <v-icon icon="mdi-email" color="white" size="x-large" rounded="xl"></v-icon>
@@ -99,9 +99,9 @@ export default {
                     Sagrada Família | BH - MG </h1>
                 <h2 class="sub-text">Nosso Mundo Pet 2025 | Todos os Direitos Reservados | Desenvolvido por tms.dev</h2>
                 <div class="icons d-flex flex-row align-center justify-center g-10">
-                    <v-icon icon="mdi-instagram" size="x-large" class="footer-icon"
+                    <v-icon icon="mdi-instagram" size="large" class="footer-icon"
                         @click="redirectToWebsite('instagram')"></v-icon>
-                    <v-icon icon="mdi-whatsapp" size="x-large" class="footer-icon" @click="openWhatsApp()"></v-icon>
+                    <v-icon icon="mdi-whatsapp" size="large" class="footer-icon" @click="openWhatsApp()"></v-icon>
                 </div>
             </v-col>
         </v-row>
@@ -110,9 +110,9 @@ export default {
 </template>
 <style scoped>
 .footer-btns {
-    height: 20vh;
+    height: 21vh;
     background-color: #f3981f;
-    gap: 3vw;
+    gap: 1vw;
 }
 
 .contact-text {
@@ -166,4 +166,26 @@ export default {
 .footer-icon:hover {
     color: #40469e;
 }
+
+@media (max-width: 1600px) {
+  .contact-text{
+    font-size: 0.9rem;
+  }
+  .contact-btn{
+    font-size: 0.7rem;
+    width: auto;
+    height: 4vh;
+  }
+
+  .info-text{
+    font-size: 1rem;
+  }
+
+  .sub-text{
+    font-size: 0.8rem;
+    margin-top: 1vh !important;
+  }
+  
+}
+
 </style>

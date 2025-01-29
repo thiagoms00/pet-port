@@ -37,7 +37,7 @@ export default {
 
         <v-row class="main-row mx-auto pa-10">
 
-            <v-col cols=5 class="img-col d-flex align-center justify-center">
+            <v-col cols=5 class="img-col d-flex">
                 <v-spacer class="ml-12"></v-spacer>
                 <div class="img-wrapper ml-10 mt-10">
                     <v-img :width="600" aspect-ratio="16/9" cover class="img-1" elevation-1
@@ -54,7 +54,7 @@ export default {
                     Loja de itens para cães e gatos, com banho, tosa e creche para os cães. Tudo para o conforto do
                     animal em um único lugar. Além de uma pequena grife voltada para os amantes de pet.</h3>
                 <v-col class="unidades-row d-flex flex-column align-center">
-                    <h1 class="about-text about-header mt-10 ml-3">Nossas unidades</h1>
+                    <h1 class="about-text about-header second-header mt-10 ml-3">Nossas unidades</h1>
                     <div class="cards-area mt-12">
                         <div class="card d-flex elevation-1">
                             <v-col cols="6" class="card-col card-left d-flex flex-column align-center">
@@ -66,11 +66,13 @@ export default {
                                     @click="openLocation('h1')">Ver
                                     Localização</v-btn>
                             </v-col>
-                            <v-spacer></v-spacer>
+                            <v-spacer class="main-spacer"></v-spacer>
                             <v-col cols="5" class="card-col card-right pa-0">
-                                <v-img :width="400" :height="300" aspect-ratio="16/9" cover class="card-img elevation-2"
-                                    src="../assets/imgs/hotelSantaTereza.jpg">
-                                </v-img>
+                                <div class="img-wrapper-2">
+                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover
+                                        class="card-img elevation-2" src="../assets/imgs/hotelSantaTereza.jpg">
+                                    </v-img>
+                                </div>
                             </v-col>
                         </div>
 
@@ -85,11 +87,13 @@ export default {
                                     @click="openLocation('h2')">Ver
                                     Localização</v-btn>
                             </v-col>
-                            <v-spacer></v-spacer>
+                            <v-spacer class="main-spacer"></v-spacer>
                             <v-col cols="5" class="card-col card-right pa-0">
-                                <v-img :width="400" :height="300" aspect-ratio="16/9" cover class="card-img elevation-2"
-                                    src="../assets/imgs/petSagradaFamilia.jpg">
-                                </v-img>
+                                <div class="img-wrapper-2">
+                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover
+                                        class="card-img elevation-2" src="../assets/imgs/petSagradaFamilia.jpg">
+                                    </v-img>
+                                </div>
                             </v-col>
                         </div>
                     </div>
@@ -137,6 +141,10 @@ html {
 .left-col {
     display: flex;
     align-items: center;
+}
+
+.img-wrapper{
+    margin-top: 12vh !important;
 }
 
 .img-1 {
@@ -220,5 +228,74 @@ html {
     font-size: 1rem;
     color: rgb(57, 57, 57);
 
+}
+
+
+
+
+@media (max-width : 1600px) {
+
+    .img-wrapper {
+        width: 31vw;
+        margin-top: 5vh !important;
+    }
+
+    .img-1 {
+        max-width: 100%;
+        margin-left: 0 !important;
+
+    }
+
+    .info-col{
+        margin-top: 2.5%;
+    }
+
+    .about-header {
+        font-size: 2.1rem;
+    }
+
+    .second-header{
+        margin-top: 2vh !important;
+    }
+
+    .about-sub {
+        font-size: 1.1rem;
+    }
+
+    .img-wrapper-2 {
+        width: 16vw;
+        height: 25vh;
+    }
+
+    .card{
+        gap: 0px !important;
+    }
+
+    .card-title{
+        font-size: 1.1rem;
+        margin-top: 2vh !important;
+        margin-left: 1vw !important;
+    }
+
+    .card-sub{
+        font-size: 0.7rem;
+        margin-left: 1vw !important;
+
+    }
+
+    .card-btn{
+        font-size: 0.7rem;
+        width: 13vw !important;
+        height: 5vh;
+        margin-left: 1vw !important;
+        margin-top: 4vh !important;
+
+    }
+
+    .main-spacer{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 0 !important;
+    }
 }
 </style>

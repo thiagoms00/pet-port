@@ -61,4 +61,17 @@ export default {
     margin-left: 45vw;
     width: 18vw;
 }
+
+@media (max-width: 1600px) {
+    .scroll-text {
+        font-size: 1.7rem;
+    }
+
+    .follow-btn{
+        width: 7vw !important;
+        height: 5vh  !important;
+        font-size: 0.75rem;
+    }
+
+}
 </style>

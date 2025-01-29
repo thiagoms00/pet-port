@@ -109,9 +109,12 @@ export default {
 
         <v-row class="cards-row mx-auto">
             <div v-for="(item,index) in services"class="custom-card d-flex flex-column elevation-4" hover>
-                <v-img :width="480" :height="330" aspect-ratio="16/9" cover class="img-card"
+                <div class="img-wrapper">
+                    <v-img :width="480" :height="330" aspect-ratio="16/9" cover class="img-card"
                     :src="item.srcImg">
                 </v-img>
+                </div>
+            
                 <h1 class="title-service mt-5 ml-8">{{ item.name }}</h1>
                 <h3 class="type-service ml-8">{{item.type}}</h3>
 
@@ -203,6 +206,43 @@ export default {
     width: 15vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1600px) {
+    .img-wrap{
+        width: 8vw !important;
+    }
+
+    .img-logo{
+        max-width: 100%;
+    }
+    .text-services{
+
+        font-size: 3rem;
+    }
+
+    .img-wrapper{
+        width: 27vw;
+        height: 20vw;
+    }
+
+    .title-service{
+        font-size: 1.2rem;
+    }
+
+    .type-service{
+        font-size: 0.9rem;
+
+    }
+    .location-service{
+        font-size: 0.75rem;
+
+    }
+
+    .card-btn{
+        margin-top: 3vh !important;
+        font-size: 1rem !important;
+    }
 }
 
 </style>

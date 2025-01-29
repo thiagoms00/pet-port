@@ -146,4 +146,18 @@ export default {
     font-size: 1.1rem;
 
 }
+
+@media (max-width: 1366px) {
+    .nav-button{
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 1600) {
+    .nav-button{
+        font-size: 0.95rem;
+    }
+}
+
+
 </style>

@@ -50,9 +50,8 @@ export default {
                 </v-img>
             </div>
             <v-divider class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
-            <div class="img-wraper ml-12 mt-12">
-                <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10"
-                    src="../assets/imgs/logo.png">
+            <div class="img-wraper2 ml-12 mt-12">
+                <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10" src="../assets/imgs/logo.png">
                 </v-img>
             </div>
 
@@ -70,8 +69,8 @@ export default {
 
             <v-col cols="5" class="data-right">
                 <div class="function-div call-div d-flex elevation-10">
-                    <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="x-large"></v-icon>
-                    <v-col class="text-contact ml-2" :style="{'cursor' : 'pointer'}" @click="openWhatsApp()">
+                    <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="large" class="contact-icon"></v-icon>
+                    <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
                         <h2 class="contact-title">Fale conosco!</h2>
                         <h4 class="contact-info">31 99930-5569</h4>
 
@@ -80,7 +79,7 @@ export default {
 
                 <div class="function-div email-div d-flex mt-3 elevation-10">
                     <v-icon icon="mdi-email-outline mt-7" color="#fff" size="x-large"></v-icon>
-                    <v-col class="text-contact ml-2" :style="{'cursor' : 'pointer'}" @click="mudaPagina('form')">
+                    <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="mudaPagina('form')">
                         <h2 class="contact-title">Envie um e-mail</h2>
                         <h4 class="contact-info">contato@nossomundopet.com.br</h4>
                     </v-col>
@@ -90,7 +89,7 @@ export default {
 
 
 
-       <!--  <v-row class="prices-title-row mx-auto pt-4 mt-12">
+        <!--  <v-row class="prices-title-row mx-auto pt-4 mt-12">
             <h1 class="table-title mx-auto">Tabela de preços</h1>
         </v-row>
 
@@ -119,7 +118,7 @@ export default {
 
         </v-row> -->
 
-        
+
         <v-row class="mt-12 mx-auto flex-column align-center justify-center">
             <p class="text-details mt-10">Checkin 13h-17h. Checkout de 9h até 12h.</p>
             <p class="text-details">*As vacinas tem que estar em dia, assim como a vermifugação e aplicação de
@@ -132,48 +131,59 @@ export default {
         </v-row>
 
         <v-row class="mt-5 mx-auto flex-column align-center justify-center">
-            <p class="text-details mt-8" :style="{'text-align' : 'justify'}">EARLY CHECK-IN (entrada mais cedo) – DE 9H-11H.
+            <p class="text-details second-text mt-8" :style="{ 'text-align': 'justify' }">EARLY CHECK-IN (entrada mais cedo) – DE
+                9H-11H.
             </p>
-            <p class="text-details" :style="{'text-align' : 'justify'}">LATE CHECK-OUT (saída mais tarde) – DE 13h-17h30.
-                </p>
+            <p class="text-details" :style="{ 'text-align': 'justify' }">LATE CHECK-OUT (saída mais tarde) – DE
+                13h-17h30.
+            </p>
         </v-row>
 
         <v-container fluid class="other-container pa-5 ma-0">
             <v-row class="align-center justify-center mt-12">
                 <h1 class="change-title">Outros Serviços</h1>
             </v-row>
-
             <v-row class=" services-row align-center justify-center mt-12">
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('creche')">
-                    <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche.jpg">
-                    </v-img>
+                    <div class="img-wrapper">
+                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche.jpg">
+                        </v-img>
+                    </div>
+
                     <h2 class="card-anchor mt-10 mb-5">Creche</h2>
                 </div>
 
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
-                    @click="mudaPagina('festa')">
-                    <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
-                        src="../assets/imgs/festa-aniversario.jpg">
-                    </v-img>
-                    <h2 class="card-anchor mt-10 mb-5">Festa de aniversário</h2>
+                    @click="mudaPagina('banho')">
+                    <div class="img-wrapper">
+                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                            src="../assets/imgs/banho-e-tosa.jpg">
+                        </v-img>
+                    </div>
+                    <h2 class="card-anchor mt-10 mb-5">Banho e Tosa</h2>
 
                 </div>
 
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelCaes')">
-                    <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/hotelzinho.jpg">
-                    </v-img>
+                    <div class="img-wrapper">
+                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                            src="../assets/imgs/hotelzinho.jpg">
+                        </v-img>
+                    </div>
                     <h2 class="card-anchor mt-10 mb-5">Hotel Cães</h2>
 
                 </div>
 
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
-                    @click="mudaPagina('banho')">
-                    <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
-                        src="../assets/imgs/banho-e-tosa.jpg">
-                    </v-img>
-                    <h2 class="card-anchor mt-10 mb-5">Banho e Tosa</h2>
+                    @click="mudaPagina('festa')">
+                    <div class="img-wrapper">
+                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                            src="../assets/imgs/festa-aniversario.jpg">
+                        </v-img>
+                    </div>
+                    <h2 class="card-anchor mt-10 mb-5">Festa de Aniversário</h2>
 
                 </div>
             </v-row>
@@ -193,7 +203,7 @@ export default {
     width: 84%;
 }
 
-.cover-img{
+.cover-img {
     border-radius: 10px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -289,7 +299,7 @@ export default {
     margin-left: 2vw;
 }
 
-.text-details{
+.text-details {
     font-size: 1.2rem;
     color: rgb(58, 58, 58);
     font-family: 'Roboto-Regular';
@@ -340,5 +350,91 @@ export default {
     color: #40469e;
     font-size: 1.35rem;
 
+}
+
+@media (max-width: 1600px) {
+    .img-wraper {
+        width: 55vw;
+        height: 25vw;
+    }
+
+    .img-wraper2 {
+        width: 10vw;
+        height: 10vw;
+        margin-left: 0 !important;
+    }
+
+    .logo-img {
+        width: 10vw;
+        height: 10vw;
+        margin-left: 0 !important;
+
+    }
+
+
+    .data-row {
+        padding: 2vh !important;
+    }
+
+    .data-title {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+
+    .data-sub {
+        font-size: 1.3rem;
+
+    }
+
+    .data-p {
+        font-size: 0.75rem;
+        width: 100%;
+    }
+
+    .function-div {
+        padding-top: 0.8vh;
+        padding-bottom: 0.8vh;
+
+    }
+
+    .text-contact {
+        margin-left: 0vw !important;
+    }
+
+    .contact-title {
+        font-size: 1rem;
+    }
+
+    .contact-info {
+        font-size: 0.7rem;
+
+    }
+
+    .contact-icon {
+        margin-top: 3vh !important;
+    }
+
+    .change-title {
+        font-size: 2rem;
+    }
+
+    .img-wrapper {
+        width: 15vw;
+        height: auto;
+    }
+
+    .card-anchor {
+        margin-top: 3vh !important;
+        margin-bottom: 1vh !important;
+        font-size: 1rem;
+    }
+
+    .text-details{
+        font-size: 0.8rem;
+    }
+
+    .second-text{
+        margin-top: 1vh !important;
+    }
 }
 </style>

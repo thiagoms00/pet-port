@@ -17,7 +17,7 @@ export default {
             img3Path: cat2,
             img4Path: dog3,
 
-            
+
             toogle1: false, //For a transition
             toogle2: false, //For a transition
             toogle3: false, //For a transition
@@ -67,7 +67,7 @@ export default {
 
     <v-app class="main-app pa-0 ma-0">
         <v-container fluid class="ma-0 pa-0 cont1">
-            <v-carousel show-arrows="hover" class="main-car">
+            <v-carousel show-arrows="hover" class="main-car" >
                 <v-carousel-item class="car-item" :src="img3Path" cover>
                     <v-col cols="16 pa-0">
                         <MainNav></MainNav>
@@ -75,17 +75,20 @@ export default {
                     <v-col cols="16" class="">
                         <div class="text-area d-flex flex-column">
 
-                            <v-img  :width="200" :height="200" class="logo-img"
-                                src="../assets/imgs/logo.png">
-                            </v-img>
+                            <div class="img-wrapper">
+                                <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
+                                </v-img>
+                            </div>
                             <Transition name="firstText">
                                 <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Hotel para gatos </h1>
                             </Transition>
                             <Transition name="firstText">
-                                <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Ele vai se sentir em casa ! </h1>
+                                <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Ele vai se sentir em casa !
+                                </h1>
                             </Transition>
                             <Transition name="firstText">
-                                <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('hotelGatos')">Conheça!</v-btn>
+                                <v-btn v-if="toogle3" class="mt-12 meet-btn"
+                                    @click="mudaPage('hotelGatos')">Conheça!</v-btn>
                             </Transition>
                         </div>
                     </v-col>
@@ -98,20 +101,23 @@ export default {
                     <v-col cols="16" class="">
                         <div class="text-area d-flex flex-column">
 
-                            <v-img  :width="200" :height="200" class="logo-img"
-                                src="../assets/imgs/logo.png">
-                            </v-img>
+                            <div class="img-wrapper">
+                                <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
+                                </v-img>
+                            </div>
+
 
                             <Transition name="firstText">
                                 <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Hotel para cachorros </h1>
                             </Transition>
                             <Transition name="firstText">
                                 <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Eles também merecem conforto<br>
-                                    e diversão! 
+                                    e diversão!
                                 </h1>
                             </Transition>
                             <Transition name="firstText">
-                                <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('hotelCaes')">Conheça!</v-btn>
+                                <v-btn v-if="toogle3" class="mt-12 meet-btn"
+                                    @click="mudaPage('hotelCaes')">Conheça!</v-btn>
                             </Transition>
                         </div>
                     </v-col>
@@ -124,20 +130,21 @@ export default {
                     <v-col cols="16" class="">
                         <div class="text-area d-flex flex-column">
 
-                            <v-img  :width="200" :height="200" class="logo-img"
-                                src="../assets/imgs/logo.png">
-                            </v-img>
-
+                            <div class="img-wrapper">
+                                <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
+                                </v-img>
+                            </div>
                             <Transition name="firstText">
                                 <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Creche para cães</h1>
                             </Transition>
                             <Transition name="firstText">
                                 <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Ele também gosta
-                                 de sair da rotina!    
+                                    de sair da rotina!
                                 </h1>
                             </Transition>
                             <Transition name="firstText">
-                                <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('creche')">Conheça!</v-btn>
+                                <v-btn v-if="toogle3" class="mt-12 meet-btn"
+                                    @click="mudaPage('creche')">Conheça!</v-btn>
                             </Transition>
                         </div>
                     </v-col>
@@ -150,16 +157,18 @@ export default {
                     <v-col cols="16" class="">
                         <div class="text-area d-flex flex-column">
 
-                            <v-img  :width="200" :height="200" class="logo-img"
-                                src="../assets/imgs/logo.png">
-                            </v-img>
+                            <div class="img-wrapper">
+                                <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
+                                </v-img>
+                            </div>
 
                             <Transition name="firstText">
                                 <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Banho e tosa </h1>
                             </Transition>
                             <Transition name="firstText">
-                                <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Mais gostoso que um bichinho <br>
-                                 só um bichinho cheiroso!    
+                                <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Mais gostoso que um bichinho
+                                    <br>
+                                    só um bichinho cheiroso!
                                 </h1>
                             </Transition>
                             <Transition name="firstText">
@@ -192,9 +201,10 @@ export default {
     margin-left: 6.5vw;
 }
 
-.logo-img{
+.logo-img {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100% !important;
 }
 
 .text-h1 {
@@ -211,7 +221,7 @@ export default {
     font-size: 4rem !important;
 
     margin-top: 8vh !important;
-    
+
 }
 
 .second-h1 {
@@ -219,7 +229,7 @@ export default {
     color: #2f368c;
 }
 
-.meet-btn{
+.meet-btn {
     background-color: #f7981b;
     color: #ffffff;
     font-size: 1.5rem;
@@ -249,5 +259,30 @@ export default {
 .firstText-enter-from,
 .firstText-leave-to {
     opacity: 0;
+}
+
+
+
+
+@media (max-width: 1600px) {
+    .img-wrapper{
+        width: 10vw;
+        height: 10vw;
+    }
+
+    .first-h1{
+        font-size: 3.1rem !important;
+    }
+
+    .second-h1{
+        font-size: 1.3rem !important;
+        margin-top: 1.3vh !important;
+    }
+
+    .meet-btn{
+        width: 11.5vw;
+        margin-top: 5.5vh !important;
+        font-size: 1.1rem;
+    }
 }
 </style>
