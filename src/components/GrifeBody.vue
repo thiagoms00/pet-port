@@ -87,7 +87,11 @@ export default {
             const message = 'Olá estou interessado em uma camisa Novo Mundo Pet!'; // Replace with your desired message
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
-        }
+        },
+        openImageInNewTab() {
+            window.open(tabelaMedidas, '_blank');
+        },
+
     },
 
     created() {
@@ -192,7 +196,7 @@ export default {
                     <h4 class="text-size ml-8 mt-2">Tamanhos</h4>
                     <v-spacer></v-spacer>
                     <h4 class="text-size mt-2 mr-10" :style="{ 'text-decoration': 'underline', 'cursor': 'pointer' }"
-                        @mouseover="isHovered = true" @mouseleave="isHovered = false">
+                        @click="openImageInNewTab">
                         Tabela de medidas
                     </h4>
                 </div>
@@ -353,9 +357,9 @@ export default {
         font-size: 1.1rem !important;
     }
 
-    .left-col{
+    .left-col {
         padding: 0 !important;
-        margin-top:7vh;
+        margin-top: 7vh;
         margin-bottom: 10vh;
     }
 
@@ -363,37 +367,37 @@ export default {
         font-size: 0.8rem;
     }
 
-    .img-wrapper2{
+    .img-wrapper2 {
         width: 20vw !important;
         height: 30vw;
     }
 
-    .img-wrapper{
+    .img-wrapper {
         width: 8vw !important;
         height: 8vw !important;
         margin-top: 0vh !important;
     }
 
-    .first-icon{
+    .first-icon {
         margin-top: 0vh !important;
     }
 
-    .info-card{
+    .info-card {
         font-size: 0.8rem;
     }
 
-    .text-size{
+    .text-size {
         font-size: 0.7rem;
     }
 
-    .size-letter{
-        font-size : 0.6rem;
+    .size-letter {
+        font-size: 0.6rem;
         width: auto !important;
         padding: 0 1vw !important;
 
     }
 
-    .confira-btn{
+    .confira-btn {
         font-size: 0.81rem;
     }
 }
