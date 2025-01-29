@@ -100,7 +100,7 @@ export default {
 
 .contact-text {
     font-family: 'Poppins-Regular';
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: bolder;
     color: #40469e;
     -webkit-font-smoothing: antialiased;

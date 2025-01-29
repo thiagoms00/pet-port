@@ -79,7 +79,7 @@ export default {
 
 </script>
 <template>
-    <v-container>
+    <v-container fluid class="px-15">
         <v-row cols="16" class="d-flex contact-row elevation-2 justify-center">
             <v-col cols="5" class="contact-col left-col">
                 <h1 class="text-fale">Fale Conosco</h1>
@@ -90,25 +90,19 @@ export default {
 
                 <v-row class="cards-row align-center justify-center">
 
-                    <v-card class="unidade-card py-5"  :width="300" hover
-                    subtitle-class="card-subtitle">
+                    <v-card class="unidade-card py-5" :width="300" hover>
                         <h4 class="custom-title"> Unidade 1</h4>
                         <h4 class="custom-sub"> Rua Jaspe 8</h4>
                         <h4 class="custom-text"> Santa tereza | BH-MG</h4>
 
-                        <v-card-actions>
-                            <h4 class="ml-2 card-number">(31) 99930-5569</h4>
-                        </v-card-actions>
+                        <h4 class="ml-2 card-number">(31) 99930-5569</h4>
                     </v-card>
 
-                    <v-card class="unidade-card py-5"  :width="300" hover
-                    subtitle-class="card-subtitle">
+                    <v-card class="unidade-card py-5" :width="300" hover>
                         <h4 class="custom-title"> Unidade 2</h4>
                         <h4 class="custom-sub"> Rua João guelberto filho 1258</h4>
                         <h4 class="custom-text"> Sagrada Família | BH-MG</h4>
-                        <v-card-actions>
-                            <h4 class="ml-2 card-number">(31) 9388-0850</h4>
-                        </v-card-actions>
+                        <h4 class="ml-2 card-number">(31) 9388-0850</h4>
                     </v-card>
 
                 </v-row>
@@ -119,17 +113,22 @@ export default {
                     <div class="custom-form">
 
                         <h3 class="label-form">Nome: </h3>
-                        <v-text-field label="" variant="outlined" density="compact" v-model="nameModel"
-                            :rules="[v => !!v || 'Campo Obrigatório']" class="message-field"></v-text-field>
-
+                        <div class="field-wrapper">
+                            <v-text-field label="" variant="outlined" density="compact" v-model="nameModel" :height="100"
+                                :rules="[v => !!v || 'Campo Obrigatório']" class="message-field"></v-text-field>
+                        </div>
+                        
                         <h3 class="label-form">E-mail: </h3>
+                        <div class="field-wrapper"></div>
                         <v-text-field label="" variant="outlined" density="compact" v-model="emailModel"
                             :rules="[v => !!v || 'Campo Obrigatório']" class="message-field"></v-text-field>
                         <h3 class="label-form">Assunto: </h3>
+                        <div class="field-wrapper"></div>
                         <v-select v-model="selectSubjectModel" :items="items" density="compact"
                             :rules="[v => !!v || 'Campo Obrigatório']" label="" variant="outlined" class="message-field"
                             required></v-select>
                         <h3 class="label-form">Sua mensagem:</h3>
+                        <div class="field-area-wrapper"></div>
                         <v-textarea label="" class="message-field" variant="outlined" density="compact"
                             v-model="messageModel"></v-textarea>
 
@@ -169,8 +168,10 @@ export default {
 .contact-row {
     flex-direction: row;
     gap: 1vw;
-    height: 90vh;
     border: 1px solid rgb(129, 129, 129);
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
 
 }
 
@@ -183,58 +184,56 @@ export default {
 }
 
 .text-fale {
-    font-family: 'Urbanist-Regular';
+    font-family: 'Poppins-Regular';
     font-weight: 600;
     font-size: 3.5rem;
-    margin-top: 5vh;
+    margin-top: 1vh;
     margin-left: 8vw;
     letter-spacing: 0.1vw;
 }
 
-.text-desc{
+.text-desc {
     font-size: 2.5rem;
+    font-family: 'Roboto-Regular';
+
 }
 
-.cards-row{
+.cards-row {
     margin-top: 5vh;
     gap: 2vw;
 }
 
 
-.unidade-card{
+.unidade-card {
     font-family: 'Urbanist-Regular';
     border: 2px solid #40469e;
 }
 
-.custom-title{
+.custom-title {
     font-size: 1.9rem !important;
     color: #40469e;
-   
-}
-
-.custom-sub{
-    font-size: 1.2rem !important;
-
-    color: rgb(48, 48, 48);
-    width: 100%;
-    text-align: center;
 
 }
 
-.custom-text{
+.custom-sub {
     font-size: 1.2rem !important;
     color: rgb(48, 48, 48);
     text-align: center;
 
 }
 
-.unidade-card h4{
-    width: 100%;
+.custom-text {
+    font-size: 1.2rem !important;
+    color: rgb(48, 48, 48);
     text-align: center;
 
 }
 
-.card-number{
+.unidade-card h4 {
+    text-align: center;
+}
+
+.card-number {
     font-size: 1.2rem;
 }
 
@@ -302,5 +301,53 @@ export default {
     font-family: 'Poppins-Regular';
     background-color: #f3981f;
     color: #FFF;
+}
+
+@media (max-width: 1600px) {
+
+    .text-fale {
+        font-size: 2.2rem !important;
+    }
+
+    .text-desc {
+        font-size: 1.1rem !important;
+
+    }
+
+    .unidade-card {
+        padding: 2vh !important;
+        width: 16vw !important;
+    }
+
+    .custom-title {
+        font-size: 1.15rem !important;
+    }
+
+    .custom-sub {
+        font-size: 0.7rem !important;
+
+    }
+
+    .custom-text {
+        font-size: 0.7rem !important;
+
+    }
+
+    .card-number {
+        font-size: 0.9rem;
+
+    }
+
+    .label-form {
+        font-size: 1rem !important;
+    }
+
+    
+
+    .message-field{
+        max-height: 100% !important;
+        max-width: 100% !important;
+
+    }
 }
 </style>
