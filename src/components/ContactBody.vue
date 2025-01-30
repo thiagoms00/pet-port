@@ -55,7 +55,7 @@ export default {
                 emailjs.send('service_q6oltav', 'template_zsuyfjb', templateParams, 'Deg-E39Bn_lTz03fT')
                     .then((response) => {
                         console.log('Email sent!', response.status, response.text);
-                        this.dialogMessage = 'Sua mensagem foi recebida com sucesso!'
+                        this.dialogMessage = 'Sua mensagem foi enviada com sucesso!'
                         this.dialogModel = true;
                     })
                     .catch((error) => {
