@@ -76,7 +76,7 @@ export default {
                 <h1 class="data-title">Festa de Aniversário</h1>
                 <h3 class="data-sub">CÃES</h3>
                 <p class="data-p"> Comemore o aniversário do seu melhor amigo no nosso espaço, com um monitor para
-                    recreação dos cães, e opção com piscina para refrescar os aumigos.
+                    recreação dos cães, e opção com piscina para refrescar os amigos.
 
                 </p>
             </v-col>
