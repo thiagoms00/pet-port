@@ -2,7 +2,18 @@
 export default {
     data() {
         return {
+            screenWidth: window.innerWidth,
+            mobile: false,
+            leftCol: 6,
+            right: 5,
+        }
+    },
 
+    created() {
+        if (this.screenWidth <= 1000) {
+            this.mobile = true;
+            this.leftCol = 12;
+            this.rightCol = 12;
         }
     },
     methods: {
@@ -45,32 +56,35 @@ export default {
     <v-container fluid class="pa-0 ma-0">
         <v-row class="img-row mx-auto  mt-12 elevation-4">
             <div class="img-wraper">
-                <v-img :width="1050" :height="500" aspect-ratio="16/9" cover class="cover-img" src="../assets/imgs/festaLarger.jpg">
+                <v-img :width="1050" :height="500" aspect-ratio="16/9" cover class="cover-img"
+                    src="../assets/imgs/festaLarger.jpg">
                 </v-img>
             </div>
-            <v-divider class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
-            <div class="img-wraper2 ml-12 mt-12">
+            <v-divider v-if="!mobile" class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
+            <div v-if="!mobile" class="img-wraper2 ml-12 mt-12">
                 <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10" src="../assets/imgs/logo.png">
                 </v-img>
             </div>
 
-        </v-row><!--  -->
+        </v-row>
 
-        <v-row class="data-row mx-auto pa-10 mt-7 elevation-4">
+        <!-- Para desktop -->
 
-            <v-col cols="6" class="data-left">
+        <v-row v-if="!mobile" class="data-row mx-auto pa-10 mt-7 elevation-4">
+
+            <v-col :cols="leftCol" class="data-left">
                 <h1 class="data-title">Festa de Aniversário</h1>
                 <h3 class="data-sub">CÃES</h3>
-                <p class="data-p"> Comemore o aniversário do seu melhor amigo no nosso espaço. Os kits incluem petiscos
-                    para cães e humanos além de atividades no nosso espaço.
+                <p class="data-p"> Comemore o aniversário do seu melhor amigo no nosso espaço, com um monitor para
+                    recreação dos cães, e opção com piscina para refrescar os aumigos.
 
-                    </p>
+                </p>
             </v-col>
 
-            <v-col cols="5" class="data-right">
+            <v-col :cols="rightCol" class="data-right">
                 <div class="function-div call-div d-flex elevation-10">
                     <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="x-large" class="contact-icon"></v-icon>
-                    <v-col class="text-contact ml-2" :style="{'cursor' : 'pointer'}" @click="openWhatsApp()">
+                    <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
                         <h2 class="contact-title">Fale conosco!</h2>
                         <h4 class="contact-info">31 99930-5569</h4>
 
@@ -79,7 +93,38 @@ export default {
 
                 <div class="function-div email-div d-flex mt-3 elevation-10">
                     <v-icon icon="mdi-email-outline mt-7" color="#fff" size="x-large"></v-icon>
-                    <v-col class="text-contact ml-2 " :style="{'cursor' : 'pointer'}" @click="mudaPagina('form')">
+                    <v-col class="text-contact ml-2 " :style="{ 'cursor': 'pointer' }" @click="mudaPagina('form')">
+                        <h2 class="contact-title">Envie um e-mail</h2>
+                        <h4 class="contact-info">contato@nossomundopet.com.br</h4>
+                    </v-col>
+                </div>
+            </v-col>
+        </v-row>
+
+        <v-row v-if="mobile" class="data-row mx-auto pa-10 mt-7 elevation-4">
+
+            <v-col :cols="leftCol" class="data-left">
+                <h1 class="data-title">Festa de Aniversário</h1>
+                <h3 class="data-sub">CÃES</h3>
+                <p class="data-p"> Comemore o aniversário do seu melhor amigo no nosso espaço, com um monitor para
+                    recreação dos cães, e opção com piscina para refrescar os aumigos.
+
+                </p>
+            </v-col>
+
+            <v-col :cols="rightCol" class="data-right">
+                <div class="function-div call-div d-flex elevation-10">
+                    <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="x-large" class="contact-icon"></v-icon>
+                    <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
+                        <h2 class="contact-title">Fale conosco!</h2>
+                        <h4 class="contact-info">31 99930-5569</h4>
+
+                    </v-col>
+                </div>
+
+                <div class="function-div email-div d-flex mt-3 elevation-10">
+                    <v-icon icon="mdi-email-outline mt-7" color="#fff" size="x-large"></v-icon>
+                    <v-col class="text-contact ml-2 " :style="{ 'cursor': 'pointer' }" @click="mudaPagina('form')">
                         <h2 class="contact-title">Envie um e-mail</h2>
                         <h4 class="contact-info">contato@nossomundopet.com.br</h4>
                     </v-col>
@@ -178,7 +223,7 @@ export default {
 
 .data-title {
     font-family: 'Poppins-Regular';
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: #40469e;
 }
 
@@ -190,7 +235,7 @@ export default {
 
 .data-p {
     font-family: 'Poppins-Regular';
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-align: justify;
     width: 90%;
     color: rgb(54, 54, 54);
@@ -334,15 +379,42 @@ export default {
         font-size: 2rem;
     }
 
-    .img-wrapper{
+    .img-wrapper {
         width: 15vw;
         height: auto;
     }
 
-    .card-anchor{
+    .card-anchor {
         margin-top: 3vh !important;
         margin-bottom: 1vh !important;
         font-size: 1rem;
     }
+}
+
+@media (max-width: 800px) {
+    .img-wraper {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .other-container {
+        margin-top: 0vh !important;
+
+    }
+
+    .change-title {
+        margin-top: 0vh !important;
+    }
+
+    .card-anchor {
+        margin-top: 1.5vh !important;
+        font-size: 1rem !important;
+    }
+
+    .img-wrapper {
+        width: 40vw;
+    }
+
+
 }
 </style>

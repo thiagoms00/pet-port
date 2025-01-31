@@ -15,6 +15,7 @@ export default {
             selectedSlide: 's1',
             slidePaths1: [marca1, marca2],
             slidePaths2: [marca3, marca4, marca5],
+            sizeWidth : window.innerWidth,
 
         }
     },
@@ -29,7 +30,7 @@ export default {
     <v-container fluid class="pa-10 ma-0 d-flex align-center contact-row">
         <v-col cols="6" class="cont-col left-col d-flex">
             <div class="test-img">
-                <v-img :width="900" aspect-ratio="16/9" cover class="logo-pata" src="../assets/imgs/pata-logo.png">
+                <v-img v-if="sizeWidth>=1000" :width="900" aspect-ratio="16/9" cover class="logo-pata" src="../assets/imgs/pata-logo.png">
                 </v-img>
             </div>
 
@@ -48,9 +49,8 @@ export default {
             <v-icon icon="mdi-arrow-left-drop-circle-outline" class="arrow-icon" size="x-large"
                 @click="selectedSlide = selectedSlide == 's1' ? 's2' : 's1'"> </v-icon>
             <div class="car-wraper d-flex align-center justify-center">
-
                 <div v-for="(item, index) in slidePaths1" v-if="selectedSlide == 's1'"
-                    class="d-fleximage-group first-group">
+                    class="d-flex image-group first-group">
                     <div class="img-wrapper">
                         <v-img :width="200" :height="180" aspect-ratio="16/9" cover class="brand-img ml-10"
                             :src="slidePaths1[index]">
@@ -191,6 +191,49 @@ export default {
     .contact-btn {
         font-size: 0.9rem;
         margin-top: 2vh !important;
+    }
+
+    .img-wrapper{
+        width: 11vw;
+        height: 8vw;
+    }
+
+    .form-div{
+        margin-left: 1vw !important;
+    }
+}
+
+@media (max-width : 800px) {
+
+    .first-group{
+        gap: 0 !important;
+    }
+
+    .contact-row{
+        padding: 0 !important;
+    }
+
+    .contact-text {
+        font-size: 1.15rem;
+        margin-left: 0vw !important;
+        margin-top: 3vh !important;
+    }
+
+    .img-wrapper{
+        width: 10vw !important;
+        height: 8vw;
+    }
+
+    .brand-img{
+        margin-left: 0 !important;
+    }
+
+    .contact-btn {
+        font-size: 0.6rem;
+        width: auto !important;
+        height: 3.8vh !important;
+        margin-top: 2vh !important;
+        margin-left: 0 !important;
     }
 
     .img-wrapper{

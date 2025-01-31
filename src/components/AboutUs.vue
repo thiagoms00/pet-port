@@ -6,7 +6,10 @@ import MainNav from './MainNav.vue';
 export default {
     data() {
         return {
-
+            sizeWidth: window.innerWidth,
+            colsSize : 7,
+            colsCard: 6,
+            mobileVer : false,
         }
     },
     methods: {
@@ -25,6 +28,14 @@ export default {
                 window.open(url, '_blank');
             }
         }
+    },
+    created (){
+
+        if(window.innerWidth <= 1000){
+            this.colsSize = 12;
+            this.colsCard = 12;
+            this.mobileVer = true;
+        }
     }
 }
 </script>
@@ -35,18 +46,18 @@ export default {
             <MainNav></MainNav>
         </v-row>
 
-        <v-row class="main-row mx-auto pa-10">
+        <v-row class="main-row mx-auto pa-6">
 
             <v-col cols=5 class="img-col d-flex">
                 <v-spacer class="ml-12"></v-spacer>
-                <div class="img-wrapper ml-10 mt-10">
+                <div class="img-wrapper ml-10 mt-10" v-if="sizeWidth >= 1000">
                     <v-img :width="600" aspect-ratio="16/9" cover class="img-1" elevation-1
                         src="../assets/imgs/IMG_9240.jpg">
                     </v-img>
                 </div>
             </v-col>
 
-            <v-col cols="7" class="info-col d-flex flex-column align-center">
+            <v-col :cols="colsSize" class="info-col d-flex flex-column align-center">
                 <h1 class="about-text about-header">Quem somos</h1>
                 <h3 class="about-text about-sub mt-4">Cuidar dos pets da sua família, como se fossem nossos, esse é o
                     nosso propósito!
@@ -57,7 +68,7 @@ export default {
                     <h1 class="about-text about-header second-header mt-10 ml-3">Nossas unidades</h1>
                     <div class="cards-area mt-12">
                         <div class="card d-flex elevation-1">
-                            <v-col cols="6" class="card-col card-left d-flex flex-column align-center">
+                            <v-col :cols="colsCard" class="card-col card-left d-flex flex-column align-center">
                                 <h1 class="card-title ml-12 mt-12">Unidade 1</h1>
                                 <h4 class="card-sub ml-12">Rua Jaspe 8 </h4>
                                 <h4 class="card-sub ml-12">Santa tereza | BH-MG</h4>
@@ -66,10 +77,10 @@ export default {
                                     @click="openLocation('h1')">Ver
                                     Localização</v-btn>
                             </v-col>
-                            <v-spacer class="main-spacer"></v-spacer>
-                            <v-col cols="5" class="card-col card-right pa-0">
+                            <v-spacer class="main-spacer" v-if="!mobileVer" ></v-spacer >
+                            <v-col cols="5" class="card-col card-right pa-0" v-if="!mobileVer">
                                 <div class="img-wrapper-2">
-                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover
+                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover 
                                         class="card-img elevation-2" src="../assets/imgs/hotelSantaTereza.jpg">
                                     </v-img>
                                 </div>
@@ -77,7 +88,7 @@ export default {
                         </div>
 
                         <div class="card d-flex elevation-1 mt-10">
-                            <v-col cols="6" class="card-col card-left d-flex flex-column align-center">
+                            <v-col :cols="colsCard" class="card-col card-left d-flex flex-column align-center">
                                 <h1 class="card-title ml-12 mt-12">Unidade 2</h1>
                                 <h4 class="card-sub ml-12">Rua João guelberto filho 1258
                                 </h4>
@@ -87,10 +98,10 @@ export default {
                                     @click="openLocation('h2')">Ver
                                     Localização</v-btn>
                             </v-col>
-                            <v-spacer class="main-spacer"></v-spacer>
-                            <v-col cols="5" class="card-col card-right pa-0">
+                            <v-spacer class="main-spacer" v-if="!mobileVer"></v-spacer>
+                            <v-col cols="5" class="card-col card-right pa-0" v-if="!mobileVer">
                                 <div class="img-wrapper-2">
-                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover
+                                    <v-img :width="400" :height="300" aspect-ratio="16/9" cover v-if="!mobileVer"
                                         class="card-img elevation-2" src="../assets/imgs/petSagradaFamilia.jpg">
                                     </v-img>
                                 </div>
@@ -143,7 +154,7 @@ html {
     align-items: center;
 }
 
-.img-wrapper{
+.img-wrapper {
     margin-top: 12vh !important;
 }
 
@@ -246,7 +257,7 @@ html {
 
     }
 
-    .info-col{
+    .info-col {
         margin-top: 2.5%;
     }
 
@@ -254,7 +265,7 @@ html {
         font-size: 2.1rem;
     }
 
-    .second-header{
+    .second-header {
         margin-top: 2vh !important;
     }
 
@@ -267,23 +278,23 @@ html {
         height: 25vh;
     }
 
-    .card{
+    .card {
         gap: 0px !important;
     }
 
-    .card-title{
+    .card-title {
         font-size: 1.1rem;
         margin-top: 2vh !important;
         margin-left: 1vw !important;
     }
 
-    .card-sub{
+    .card-sub {
         font-size: 0.7rem;
         margin-left: 1vw !important;
 
     }
 
-    .card-btn{
+    .card-btn {
         font-size: 0.7rem;
         width: 13vw !important;
         height: 5vh;
@@ -292,7 +303,72 @@ html {
 
     }
 
-    .main-spacer{
+    .main-spacer {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 0 !important;
+    }
+}
+
+
+@media (max-width : 800px) {
+
+
+    .main-row {
+       width: auto;
+       padding: 2 !important;
+    }
+
+    .info-col{
+        width: 100% !important;
+    }
+
+    .about-header {
+        font-size: 2rem;
+    }
+
+    .second-header {
+        width: 100% !important;
+        margin-top: 2vh !important;
+        text-align: center;
+    }
+
+    .about-sub {
+        font-size: 0.7rem;
+        width: 100% !important;
+    }
+
+    .img-wrapper-2 {
+        width: 16vw;
+        height: 25vh;
+    }
+
+    .card {
+        gap: 0px !important;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        margin-top: 2vh !important;
+        margin-left: 1vw !important;
+    }
+
+    .card-sub {
+        font-size: 0.65rem;
+        margin-left: 1vw !important;
+
+    }
+
+    .card-btn {
+        font-size: 0.6rem;
+        width: 40vw !important;
+        height: 4vh;
+        margin-left: 1vw !important;
+        margin-top: 2.2vh !important;
+
+    }
+
+    .main-spacer {
         margin-right: 0 !important;
         margin-left: 0 !important;
         width: 0 !important;

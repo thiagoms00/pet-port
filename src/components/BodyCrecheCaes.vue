@@ -2,39 +2,21 @@
 export default {
     data() {
         return {
-            crecheT1: [
-                {
-                    name: 'Diária Avulsa',
-                    value: 'R$59,00',
-                },
-                {
-                    name: 'Meio Horário',
-                    value: 'R$35,00',
-                },
-                {
-                    name: 'Pacote de 4 diárias',
-                    value: 'R$223,00',
-                }
-
-            ],
-
-            crecheT2: [
-                {
-                    name: '2 Vezes por semana',
-                    value: 'R$394,00',
-                },
-                {
-                    name: '3 Vezes por semana',
-                    value: 'R$545,00',
-                },
-                {
-                    name: '4 Vezes por semana',
-                    value: 'R$665,00',
-                }
-
-            ],
+            screenWidth: window.innerWidth,
+            mobile: false,
+            leftCol: 6,
+            right: 5,
         }
     },
+
+    created() {
+        if (this.screenWidth <= 1000) {
+            this.mobile = true;
+            this.leftCol = 12;
+            this.rightCol = 12;
+        }
+    },
+
     methods: {
         mudaPagina(location) {
             switch (location) {
@@ -79,8 +61,8 @@ export default {
                     src="../assets/imgs/creche1.jpg">
                 </v-img>
             </div>
-            <v-divider class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
-            <div class="img-wraper2 ml-12 mt-12">
+            <v-divider v-if="!mobile" class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
+            <div v-if="!mobile" class="img-wraper2 ml-12 mt-12">
                 <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10" src="../assets/imgs/logo.png">
                 </v-img>
             </div>
@@ -89,7 +71,7 @@ export default {
 
         <v-row class="data-row mx-auto pa-10 mt-7 elevation-4">
 
-            <v-col cols="6" class="data-left">
+            <v-col :cols="leftCol" class="data-left">
                 <h1 class="data-title">Creche</h1>
                 <h3 class="data-sub">Cães</h3>
                 <p class="data-p"> Traga seu cão para passar o dia conosco e se divertir com outros cães. A programação
@@ -98,7 +80,7 @@ export default {
                     agendada e sem custo.</p>
             </v-col>
 
-            <v-col cols="5" class="data-right">
+            <v-col :cols="rightCol" class="data-right">
                 <div class="function-div call-div d-flex elevation-10">
                     <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="x-large" class="contact-icon"></v-icon>
                     <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
@@ -173,7 +155,7 @@ export default {
             <div class="custom-divider"></div>
 
             <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">Pacote de 4 diárias avulsas</h3>
+                <h3 class="table-sub">Pacote de 4 diárias avulsas <span class="table-details">(30 dias para utilização)</span></h3>
                 <h1 class="table-price">R$223,00</h1>
             </div>
 
@@ -189,15 +171,15 @@ export default {
                 <h3 class="table-sub">2 Vezes por semana</h3>
                 <h1 class="table-price">R$394,00</h1>
             </div>
-            <div class="custom-divider"></div>
+            <div v-if="!mobile"  class="custom-divider"></div>
 
             <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
                 <h3 class="table-sub">3 Vezes por semana</h3>
                 <h1 class="table-price">R$545,00</h1>
             </div>
-            <div class="custom-divider"></div>
+            <div v-if="!mobile" class="custom-divider"></div>
 
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
+            <div class="title-and-price last-table d-flex flex-column align-center justify-center ml-8">
                 <h3 class="table-sub">4 vezes por semana</h3>
                 <h1 class="table-price">R$665,00</h1>
             </div>
@@ -367,6 +349,7 @@ export default {
 .table-sub {
     font-family: 'Roboto-Regular';
     font-size: 1.05rem;
+    text-align: center;
 }
 
 .table-price {
@@ -560,7 +543,7 @@ export default {
         font-size: 1rem;
     }
 
-    .text-details {
+    .x-details {
         font-size: 0.8rem;
     }
 
@@ -610,4 +593,82 @@ export default {
         margin-top: 0 !important;
     }
 }
+
+@media (max-width: 800px) {
+    .img-wraper {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .other-container {
+        margin-top: 0vh !important;
+
+    }
+
+    .change-title {
+        margin-top: 0vh !important;
+    }
+
+    .card-anchor {
+        margin-top: 1.5vh !important;
+        font-size: 1rem !important;
+    }
+
+    .img-wrapper {
+        width: 40vw;
+    }
+
+
+    .outras-row{
+        margin-top: 0 !important;
+    }
+
+    .img-wrapper3{
+        width: 50vw;
+        height: 30vw;
+    }
+
+    .diaria-row{
+        margin-top:  0 !important;
+    }
+
+    .title-and-price{
+        width: 38vw;
+        height: 10vh;
+    }
+
+    .custom-divider{
+        margin-left: 6.5vw;
+        height: 8vh;
+    }
+
+    .table-sub{
+        font-size: 0.8rem;
+    }
+
+    .table-price{
+        font-size: 1.3rem;
+    }
+
+    .last-table{
+        margin-right: 5vw;
+    }
+
+    .prices-first-row{
+        margin-top: 0 !;
+    }
+
+    .pacote-row{
+        height: 4vh;
+    }
+
+    .text-details{
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 0.5vw;
+        margin-top: 1vh;
+    }
+
+}
+
 </style>

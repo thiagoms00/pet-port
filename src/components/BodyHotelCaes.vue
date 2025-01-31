@@ -5,9 +5,21 @@ import ChangeServices from '@/components/ChangeServices.vue';
 export default {
     data() {
         return {
-
+            screenWidth: window.innerWidth,
+            mobile: false,
+            leftCol: 6,
+            right: 5,
         }
     },
+
+    created() {
+        if (this.screenWidth <= 1000) {
+            this.mobile = true;
+            this.leftCol = 12;
+            this.rightCol = 12;
+        }
+    },
+
     methods: {
         mudaPagina(location) {
             switch (location) {
@@ -52,22 +64,22 @@ export default {
                     src="../assets/imgs/hotelCaesLarger.jpg">
                 </v-img>
             </div>
-            <v-divider class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
-            <div class="img-wraper2 ml-12 mt-12">
+            <v-divider v-if="!mobile"class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
+            <div v-if="!mobile" class="img-wraper2 ml-12 mt-12">
                 <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10" src="../assets/imgs/logo.png">
                 </v-img>
             </div>
         </v-row>
 
-        <v-row class="data-row mx-auto pa-10 mt-7 elevation-4">
-            <v-col cols="6" class="data-left">
+        <v-row v-if="mobile" class="data-row mx-auto pa-10 mt-7 elevation-4">
+            <v-col :cols="leftCol" class="data-left">
                 <h1 class="data-title">Hotelzinho</h1>
                 <h3 class="data-sub">CÃES</h3>
                 <p class="data-p"> Viaje tranquilo e deixe o seu cão passar férias com a gente. Durante o dia, os cães
                     ficam na área de lazer e, a noite, dormem em espaços individuais, valores a consultar.</p>
             </v-col>
 
-            <v-col cols="5" class="data-right">
+            <v-col :cols="rightCol" class="data-right">
                 <div class="function-div call-div d-flex elevation-10">
                     <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="x-large" class="contact-icon"></v-icon>
                     <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
@@ -88,56 +100,15 @@ export default {
             </v-col>
         </v-row>
 
-        <!-- <v-row class="prices-title-row mx-auto pt-4 mt-12">
-            <h1 class="table-title mx-auto">Tabela de preços</h1>
-        </v-row>
-
-        <v-row class="prices-first-row mx-auto pa-10 align-center justify-center">
-            <div class="title-and-price d-flex flex-column align-center justify-center">
-                <h3 class="table-sub">Diária porte P/M</h3>
-                <h1 class="table-price">R$60,00</h1>
-            </div>
-            <div class="custom-divider"></div>
-
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">Pacote: acima de 7 diárias</h3>
-                <h1 class="table-price">R$58,00/diária</h1>
-            </div>
-            <div class="custom-divider"></div>
-
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">Dois cães P na mesma cabine</h3>
-                <h1 class="table-price">R$96,00/diária</h1>
-            </div>
-        </v-row>
-
-        <v-row class="prices-first-row mx-auto pa-10 align-center justify-center">
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-5">
-                <h3 class="table-sub">Diária porte G</h3>
-                <h1 class="table-price">R$65,00</h1>
-            </div>
-            <div class="custom-divider"></div>
-
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">Pacote: acima de 7 diárias</h3>
-                <h1 class="table-price">R$63,00/diária</h1>
-            </div>
-            <div class="custom-divider"></div>
-
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">Dois cães M ou G na mesma cabine</h3>
-                <h1 class="table-price">R$104,00/diária</h1>
-            </div>
-        </v-row> -->
-
+      
+    
+       
         <v-row class="mt-10 mx-auto flex-column align-center justify-center">
             <p class="text-details mt-8">Checkin 13h-17h. Checkout de 9h até 12h.</p>
             <p class="text-details">*As vacinas tem que estar em dia, assim como a vermifugação e aplicação de
                 antipulgas e carrapatos
                 . </p>
-            <p class="text-details">Não inclui alimentação. Trazer alimentação, tigelas, manta ou cama e cartão de
-                vacinas. SOMENTE
-                ALUNOS mensalistas PODEM FAZER CHECK-IN ANTES DE 9H – conta 1 diária de creche+ hotel.</p>
+           
         </v-row>
 
         <v-row class="mt-5 mx-auto flex-column align-center justify-center">
@@ -443,6 +414,39 @@ export default {
 
     .second-text{
         margin-top: 1vh !important;
+    }
+
+
+}
+
+@media (max-width: 800px) {
+    .img-wraper {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .text-details{
+        text-align: center;
+    }
+
+
+    .other-container {
+        margin-top: 0vh !important;
+
+    }
+
+   
+    .change-title {
+        margin-top: 0vh !important;
+    }
+
+    .card-anchor {
+        margin-top: 1.5vh !important;
+        font-size: 1rem !important;
+    }
+
+    .img-wrapper {
+        width: 40vw;
     }
 
 

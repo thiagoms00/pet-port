@@ -9,6 +9,9 @@ export default {
             nameModel: '',
             emailModel: '',
             messageModel: '',
+            screenWidth: window.innerWidth,
+            leftCol : 5,
+            rightCol : 6,
 
             dialogMessage: '',
             dialogModel: false,
@@ -41,6 +44,17 @@ export default {
 
         }
     },
+
+    created() {
+        console.log(this.leftCol)
+
+        if(this.screenWidth <= 1000){
+            this.leftCol = 12;
+            this.rightCol = 12;
+            console.log(this.leftCol)
+        }
+    },
+
     methods: {
         sendEmail() {
             if (this.nameModel.length >= 3 && this.selectSubjectModel.length >= 3 && this.emailModel.length >= 3 && this.messageModel.length >= 3) {
@@ -64,12 +78,11 @@ export default {
                         this.dialogModel = true;
                     });
 
-
             }
 
-
-
         },
+
+
     }
 }
 
@@ -77,10 +90,10 @@ export default {
 
 </script>
 <template>
-    <v-container fluid class="px-15">
+    <v-container fluid class="px-15 main-container">
         <v-row cols="16" class="d-flex contact-row elevation-2 justify-center">
-            <v-col cols="5" class="contact-col left-col">
-                <h1 class="text-fale">Fale Conosco</h1>
+            <v-col :cols="leftCol" class="contact-col left-col">
+                <h1 class="text-fale mx-auto">Fale Conosco</h1>
                 <div class="custom-divider"></div>
                 <h3 class="text-desc">Caso esteja interessado nos nossos serviços, preencha o formulário ao lado que
                     vamos entrar em contato com você assim que possível !
@@ -106,7 +119,7 @@ export default {
                 </v-row>
 
             </v-col>
-            <v-col cols="6" class="contact-col right-col d-flex align-center justify-center">
+            <v-col :cols="rightCol" class="contact-col right-col d-flex align-center justify-center">
                 <v-sheet class="mx-auto" width="600">
                     <div class="custom-form">
 
@@ -134,8 +147,6 @@ export default {
                             @click="sendEmail()">Enviar</v-btn>
 
                     </div>
-
-
 
                 </v-sheet>
             </v-col>
@@ -186,7 +197,6 @@ export default {
     font-weight: 600;
     font-size: 3.5rem;
     margin-top: 1vh;
-    margin-left: 8vw;
     letter-spacing: 0.1vw;
 }
 
@@ -347,5 +357,70 @@ export default {
         max-width: 100% !important;
 
     }
+}
+
+@media (max-width: 800px) {
+
+    .main-container{
+        padding: 0 8vw !important;
+    }
+
+.text-fale {
+    font-size: 1.3rem !important;
+    margin-left: 30% !important;
+    margin-right: 30% !important;
+    letter-spacing: 0vw;
+
+}
+
+.custom-divider{
+    margin-left: 40% !important;
+    margin-right: 40% !important;}
+
+.text-desc {
+    font-size: 1rem !important;
+    margin-top: 3vh !important;
+    width: 90%  ;
+
+}
+
+.unidade-card {
+    padding: 2vh !important;
+    width: 50vw !important;
+}
+
+.custom-title {
+    font-size: 1.15rem !important;
+}
+
+.custom-sub {
+    font-size: 0.7rem !important;
+
+}
+
+.custom-text {
+    font-size: 0.7rem !important;
+
+}
+
+.card-number {
+    font-size: 0.9rem;
+
+}
+
+.label-form {
+    font-size: 1rem !important;
+}
+
+.submit-button{
+    width: 50vw !important;
+
+}
+
+.message-field{
+    max-height: 100% !important;
+    max-width: 100% !important;
+
+}
 }
 </style>

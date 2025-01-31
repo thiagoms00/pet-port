@@ -2,7 +2,18 @@
 export default {
     data() {
         return {
+            screenWidth: window.innerWidth,
+            mobile: false,
+            leftCol: 6,
+            right: 5,
+        }
+    },
 
+    created() {
+        if (this.screenWidth <= 1000) {
+            this.mobile = true;
+            this.leftCol = 12;
+            this.rightCol = 12;
         }
     },
     methods: {
@@ -49,8 +60,8 @@ export default {
                     src="../assets/imgs/hotelGatoLarger.jpg">
                 </v-img>
             </div>
-            <v-divider class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
-            <div class="img-wraper2 ml-12 mt-12">
+            <v-divider v-if="!mobile"  class="cover-divider border-opacity-50" :thickness="2" vertical color="#40469e"></v-divider>
+            <div v-if="!mobile" class="img-wraper2 ml-12 mt-12">
                 <v-img :width="220" aspect-ratio="16/9" cover class="ml-10 mt-10" src="../assets/imgs/logo.png">
                 </v-img>
             </div>
@@ -58,7 +69,7 @@ export default {
         </v-row>
 
         <v-row class="data-row mx-auto pa-10 mt-7 elevation-4">
-            <v-col cols="6" class="data-left">
+            <v-col :cols="leftCol" class="data-left">
                 <h1 class="data-title">Hotelzinho</h1>
                 <h3 class="data-sub">Gatos</h3>
                 <p class="data-p"> Espaços individuais e telados, mais verticais (2,55m de altura) para que ele possam
@@ -67,7 +78,7 @@ export default {
                 </p>
             </v-col>
 
-            <v-col cols="5" class="data-right">
+            <v-col :cols="rightCol" class="data-right">
                 <div class="function-div call-div d-flex elevation-10">
                     <v-icon icon="mdi-whatsapp mt-7" color="#fff" size="large" class="contact-icon"></v-icon>
                     <v-col class="text-contact ml-2" :style="{ 'cursor': 'pointer' }" @click="openWhatsApp()">
@@ -436,5 +447,38 @@ export default {
     .second-text{
         margin-top: 1vh !important;
     }
+}
+
+@media (max-width: 800px) {
+    .img-wraper {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .text-details{
+        text-align: center;
+    }
+
+
+    .other-container {
+        margin-top: 0vh !important;
+
+    }
+
+   
+    .change-title {
+        margin-top: 0vh !important;
+    }
+
+    .card-anchor {
+        margin-top: 1.5vh !important;
+        font-size: 1rem !important;
+    }
+
+    .img-wrapper {
+        width: 40vw;
+    }
+
+
 }
 </style>

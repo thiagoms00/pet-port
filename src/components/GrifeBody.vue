@@ -15,6 +15,10 @@ export default {
             srcTabela: '',
             selectedShirt: {},
             isHovered: false, // Add this line to track hover state
+            screenWidth: window.innerWidth,
+            leftCol : 8,
+            rightCol : 3,
+
             shirts1: [
                 {
                     name: 'Camisa 1 - Nosso mundo pet',
@@ -77,9 +81,6 @@ export default {
         }
     },
 
-    created() {
-        this.srcTabela = tabelaMedidas;
-    },
 
     methods: {
         openWhatsApp() {
@@ -96,6 +97,14 @@ export default {
 
     created() {
         this.selectedShirt = this.shirts1[0];
+        this.srcTabela = tabelaMedidas;
+        console.log(this.leftCol);
+
+        if(this.screenWidth <= 1000){
+            this.leftCol = 12;
+            this.rightCol = 11;
+            console.log(this.leftCol);
+        }
     }
 }
 </script>
@@ -131,7 +140,7 @@ export default {
         </v-row>
 
         <v-row class="align-center justify-center pa-0 mt-10">
-            <p class="data-text">
+            <p class="data-text first-data">
                 Você sabia que agora nós lançamos uma grife pra você desfilar seu amor de 4 patas por aí?
                 Não tava sabendo? Pois agora, você tá!
             </p>
@@ -144,7 +153,7 @@ export default {
         </v-row>
 
         <v-row class="content-row mt-10 px-5">
-            <v-col cols="8" class="left-col pa-10 ml-5">
+            <v-col :cols="leftCol" class="left-col pa-10 mx-auto">
                 <v-row class="img-row align-center justify-center">
                     <div v-for="(item, index) in shirts1" class="img-row elevation-1">
                         <div class="img-wrapper2">
@@ -166,7 +175,7 @@ export default {
                     </div>
                 </v-row>
             </v-col>
-            <v-col cols="3" class="right-col ml-12 d-flex flex-column mt-7 pt-10 elevation-2">
+            <v-col :cols="rightCol" class="right-col mx-auto d-flex flex-column mt-7 pt-10 elevation-2">
                 <div class="img-wrapper mx-auto mt-5">
                     <v-img :width="210" aspect-ratio="16/9" contain class="logo-img" src="../assets/imgs/logo.png">
                     </v-img>
@@ -401,4 +410,78 @@ export default {
         font-size: 0.81rem;
     }
 }
+
+@media (max-width: 800px) {
+
+.title {
+    font-size: 1.6rem;
+}
+
+.first-data{
+    margin-top: 4vh;
+}
+
+.data-text {
+    font-size: 1rem !important;
+    width: 80%;
+}
+
+.left-col {
+    margin-top: 7vh;
+    margin-bottom: 10vh;
+}
+
+.icon-text {
+    font-size: 0.7rem;
+}
+
+.content-row{
+    padding: 0 !important;
+}
+
+.img-wrapper2 {
+    width: 30vw !important;
+    height: 30vw;
+}
+
+.img-wrapper {
+    width: 30vw !important;
+    height: 30vw !important;
+    margin-top: 0vh !important;
+}
+
+.first-icon {
+    margin-top: 0vh !important;
+}
+.right-col{
+    height: auto;
+    padding-top: 5vh !important;
+    padding-bottom: 5vh !important;
+}
+
+
+.info-card {
+    font-size: 0.8rem;
+}
+
+.text-size {
+    font-size: 0.7rem;
+}
+
+.size-letter {
+    font-size: 1rem;
+    width: auto !important;
+    height: auto;
+    padding: 1vw 3vw !important;
+    margin-left: 1vw;
+
+}
+
+.confira-btn {
+    font-size: 0.81rem;
+    width: auto !important;
+    height: 4vh;
+}
+}
+
 </style>

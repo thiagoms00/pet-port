@@ -245,4 +245,48 @@ export default {
     }
 }
 
+@media (max-width: 800px) {
+    .img-wrap{
+        width: 20vw !important;
+    }
+
+    .img-logo{
+        max-width: 100%;
+    }
+    .text-services{
+
+        font-size: 3rem;
+    }
+
+
+    .custom-card{
+        width: 75vw !important;
+    }
+
+    .img-wrapper{
+        width: 75vw;
+        height: 40vw;
+    }
+
+    .title-service{
+        font-size: 1rem;
+    }
+
+    .type-service{
+        font-size: 0.8rem;
+
+    }
+    .location-service{
+        font-size: 0.6rem;
+
+    }
+
+    .card-btn{
+        margin-top: 3vh !important;
+        font-size: 0.9rem !important;
+        width: 45vw !important;
+        margin-bottom: 2vh !important;
+    }
+}
+
 </style>

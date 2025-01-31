@@ -21,6 +21,7 @@ export default {
             toogle1: false, //For a transition
             toogle2: false, //For a transition
             toogle3: false, //For a transition
+            screenWidth: window.innerWidth,
 
         }
     },
@@ -38,6 +39,7 @@ export default {
         setTimeout(() => {
             this.toogle3 = true;
         }, 800);
+        console.log(this.screenWidth);
     },
     methods: {
         mudaPage(pageName) {
@@ -59,7 +61,8 @@ export default {
                     break;
             }
         },
-    }
+    },
+
 }
 </script>
 <template>
@@ -149,8 +152,8 @@ export default {
                         </div>
                     </v-col>
                 </v-carousel-item>
-
-                <v-carousel-item class="car-item" :src="img4Path" cover>
+                <div class="car-wrapper">
+                    <v-carousel-item class="car-item" :src="img4Path" cover>
                     <v-col cols="16 pa-0">
                         <MainNav></MainNav>
                     </v-col>
@@ -177,6 +180,8 @@ export default {
                         </div>
                     </v-col>
                 </v-carousel-item>
+                </div>
+                
             </v-carousel>
         </v-container>
     </v-app>
@@ -283,6 +288,51 @@ export default {
         width: 11.5vw;
         margin-top: 5.5vh !important;
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .main-car{
+        width: 100% !important;
+    }
+
+    .car-wrapper{
+        width: 10vw !important;
+    }
+
+    .car-item{
+        height: 100% !important;
+        
+    }
+
+    .img-wrapper{
+        width: 35vw;
+        height: 35vw;
+        margin-top: 10.3vh !important;
+
+    }
+
+    .first-h1{
+        font-size: 2.1rem !important;
+        margin-top: 5.3vh !important;
+        margin-left: 5vw;
+
+    }
+
+    .second-h1{
+        font-size: 1.2rem !important;
+        margin-top: 1.3vh !important;
+        margin-left: 5.5vw !important;
+
+    }
+
+    .meet-btn{
+        width: 45vw !important;
+        height: 4.5vh;
+        margin-top: 1.5vh !important;
+        font-size: 1rem;
+        border-radius: 100px;
     }
 }
 </style>
