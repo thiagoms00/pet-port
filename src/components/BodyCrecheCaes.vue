@@ -135,7 +135,7 @@ export default {
 
                 <div class="img-wrapper3">
                     <v-img :width="620" :height="400" aspect-ratio="16/9" cover class="other-img"
-                        src="../assets/imgs/creche3.jpg">
+                        src="../assets/imgs/creche1.jpg">
                     </v-img>
                 </div>
 
@@ -148,13 +148,13 @@ export default {
         </v-row>
 
         <v-row class="prices-first-row mx-auto pt-5 align-center justify-center">
-            <div class="title-and-price d-flex flex-column align-center justify-center">
+            <div class="title-and-price d-flex flex-column align-center justify-center first-row">
                 <h3 class="table-sub">Diária avulsa</h3>
                 <h1 class="table-price">R$59,00</h1>
             </div>
             <div class="custom-divider"></div>
 
-            <div class="title-and-price d-flex flex-column align-center justify-center ml-8">
+            <div class="title-and-price d-flex flex-column align-center justify-center ml-8 first-row">
                 <h3 class="table-sub">Pacote de 4 diárias avulsas <span class="table-details">(30 dias para utilização)</span></h3>
                 <h1 class="table-price">R$223,00</h1>
             </div>
@@ -162,7 +162,7 @@ export default {
         </v-row>
 
         <v-row class="prices-title-row pacote-row mx-auto pt-12">
-            <h1 class="table-title mx-auto">Pacote Mensal</h1>
+            <h1 class="table-title mx-auto ">Pacote Mensal</h1>
         </v-row>
 
         <v-row class="prices-first-row second-prices-row mx-auto pa-5 align-center justify-center">
@@ -180,7 +180,7 @@ export default {
             <div v-if="!mobile" class="custom-divider"></div>
 
             <div class="title-and-price last-table d-flex flex-column align-center justify-center ml-8">
-                <h3 class="table-sub">4 vezes por semana</h3>
+                <h3 class="table-sub last-sub">4 vezes por semana</h3>
                 <h1 class="table-price">R$665,00</h1>
             </div>
 
@@ -207,7 +207,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('banho')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/banho-e-tosa.jpg">
                         </v-img>
                     </div>
@@ -218,7 +218,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('festa')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/festa-aniversario.jpg">
                         </v-img>
                     </div>
@@ -229,7 +229,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelCaes')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho.jpg">
                         </v-img>
                     </div>
@@ -240,7 +240,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelGatos')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho-gatos.jpg">
                         </v-img>
                     </div>
@@ -534,7 +534,7 @@ export default {
 
     .img-wrapper {
         width: 15vw;
-        height: auto;
+        height: 10vh;
     }
 
     .card-anchor {
@@ -574,7 +574,7 @@ export default {
 
     .table-title{
         font-size: 1.8rem;
-        margin-top: 0 !important;
+        margin-top: vh !important;
     }
 
     .table-sub{
@@ -600,6 +600,10 @@ export default {
         height: 20vh;
     }
 
+    .contact-icon {
+        margin-top: 2.5vh !important;
+    }
+
     .other-container {
         margin-top: 0vh !important;
 
@@ -611,13 +615,13 @@ export default {
 
     .card-anchor {
         margin-top: 1.5vh !important;
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
-    .img-wrapper {
+    .img-wrapper{
         width: 40vw;
+        height: 20vh;
     }
-
 
     .outras-row{
         margin-top: 0 !important;
@@ -634,8 +638,9 @@ export default {
 
     .title-and-price{
         width: 38vw;
-        height: 10vh;
+        height: 14vh;
     }
+
 
     .custom-divider{
         margin-left: 6.5vw;
@@ -643,7 +648,13 @@ export default {
     }
 
     .table-sub{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        margin-top: 5vh !important;
+        text-align: center;
+    }
+
+    .last-sub{
+        margin-top: 0 !important;
     }
 
     .table-price{
@@ -660,6 +671,7 @@ export default {
 
     .pacote-row{
         height: 4vh;
+        margin-top: 5vh
     }
 
     .text-details{
@@ -667,6 +679,10 @@ export default {
         text-align: center;
         padding: 0 0.5vw;
         margin-top: 1vh;
+    }
+
+    .contact-icon{
+        margin-top: 2.5vh !important;
     }
 
 }

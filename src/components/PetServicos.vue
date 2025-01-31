@@ -248,6 +248,7 @@ export default {
 @media (max-width: 800px) {
     .img-wrap{
         width: 20vw !important;
+        height: 15vh;
     }
 
     .img-logo{

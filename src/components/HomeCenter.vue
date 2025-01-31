@@ -23,9 +23,16 @@ export default {
             toogle3: false, //For a transition
             screenWidth: window.innerWidth,
 
+            carImgHeight: '100vh',
+            carImgWidth: 'auto',
+            mobile: false,
+
         }
     },
     created() {
+        if (this.screenWidth < 1000) {
+            this.mobile = true;
+        }
     },
     mounted() {
         setTimeout(() => {
@@ -69,8 +76,10 @@ export default {
 
 
     <v-app class="main-app pa-0 ma-0">
-        <v-container fluid class="ma-0 pa-0 cont1">
-            <v-carousel show-arrows="hover" class="main-car" >
+        <!-- Para desktop -->
+
+        <v-container v-if="!mobile" fluid class="ma-0 pa-0 cont1">
+            <v-carousel show-arrows="hover" class="main-car">
                 <v-carousel-item class="car-item" :src="img3Path" cover>
                     <v-col cols="16 pa-0">
                         <MainNav></MainNav>
@@ -153,37 +162,69 @@ export default {
                     </v-col>
                 </v-carousel-item>
                 <div class="car-wrapper">
-                    <v-carousel-item class="car-item" :src="img4Path" cover>
-                    <v-col cols="16 pa-0">
-                        <MainNav></MainNav>
-                    </v-col>
-                    <v-col cols="16" class="">
-                        <div class="text-area d-flex flex-column">
+                    <v-carousel-item class="car-item" :src="img4Path" cover height="100vh">
+                        <v-col cols="16 pa-0">
+                            <MainNav></MainNav>
+                        </v-col>
+                        <v-col cols="16" class="">
+                            <div class="text-area d-flex flex-column">
 
+                                <div class="img-wrapper">
+                                    <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
+                                    </v-img>
+                                </div>
+
+                                <Transition name="firstText">
+                                    <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Banho e tosa </h1>
+                                </Transition>
+                                <Transition name="firstText">
+                                    <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Mais gostoso que um bichinho
+                                        <br>
+                                        só um bichinho cheiroso!
+                                    </h1>
+                                </Transition>
+                                <Transition name="firstText">
+                                    <v-btn v-if="toogle3" class="mt-12 meet-btn"
+                                        @click="mudaPage('banho')">Conheça!</v-btn>
+                                </Transition>
+                            </div>
+                        </v-col>
+                    </v-carousel-item>
+                </div>
+
+            </v-carousel>
+        </v-container>
+
+        <!-- Para versões mobile -->
+        <v-container v-if="mobile" fluid class="ma-0 pa-0 cont1 mobile-container">
+            <v-col cols="16 pa-0">
+                <MainNav></MainNav>
+                <v-col cols="16" class="">
+                    <div class="text-area d-flex flex-column">
+
+                        <Transition name="firstText">
                             <div class="img-wrapper">
                                 <v-img :width="200" :height="200" class="logo-img" src="../assets/imgs/logo.png">
                                 </v-img>
                             </div>
 
-                            <Transition name="firstText">
-                                <h1 v-if="toogle1" class="text-h1 first-h1 mt-12">Banho e tosa </h1>
-                            </Transition>
-                            <Transition name="firstText">
-                                <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Mais gostoso que um bichinho
-                                    <br>
-                                    só um bichinho cheiroso!
-                                </h1>
-                            </Transition>
-                            <Transition name="firstText">
-                                <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('banho')">Conheça!</v-btn>
-                            </Transition>
-                        </div>
-                    </v-col>
-                </v-carousel-item>
-                </div>
-                
-            </v-carousel>
+                        </Transition>
+                        <Transition name="firstText">
+                            <h1 v-if="toogle2" class="text-h1 second-h1 mt-4 ml-1"> Eles também merecem conforto<br>
+                                e diversão!
+                            </h1>
+                        </Transition>
+                        <Transition name="firstText">
+                            <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('hotelCaes')">Conheça!</v-btn>
+                        </Transition>
+                    </div>
+                </v-col>
+            </v-col>
+
+
         </v-container>
+
+
     </v-app>
 </template>
 <style scoped>
@@ -267,24 +308,32 @@ export default {
 }
 
 
+.mobile-container {
+    background-image: url(../assets/imgs/mobileCover.jpg);
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    height: 88.99vh;
+    background-position: center;
+}
 
 
 @media (max-width: 1600px) {
-    .img-wrapper{
+    .img-wrapper {
         width: 10vw;
         height: 10vw;
     }
 
-    .first-h1{
+    .first-h1 {
         font-size: 3.1rem !important;
     }
 
-    .second-h1{
+    .second-h1 {
         font-size: 1.3rem !important;
         margin-top: 1.3vh !important;
     }
 
-    .meet-btn{
+    .meet-btn {
         width: 11.5vw;
         margin-top: 5.5vh !important;
         font-size: 1.1rem;
@@ -293,46 +342,50 @@ export default {
 
 @media (max-width: 800px) {
 
-    .main-car{
+    .main-car {
         width: 100% !important;
     }
 
-    .car-wrapper{
+    .car-wrapper {
         width: 10vw !important;
     }
 
-    .car-item{
+    .car-item {
         height: 100% !important;
-        
-    }
-
-    .img-wrapper{
-        width: 35vw;
-        height: 35vw;
-        margin-top: 10.3vh !important;
 
     }
 
-    .first-h1{
+    .img-wrapper {
+        width: 40vw;
+        height: 40vw;
+        margin-top: 28.3vh !important;
+
+    }
+
+    .first-h1 {
         font-size: 2.1rem !important;
         margin-top: 5.3vh !important;
         margin-left: 5vw;
+        filter: brightness(1.05);
+        /* 1 is normal, increase for more brightness */
+
 
     }
 
-    .second-h1{
-        font-size: 1.2rem !important;
-        margin-top: 1.3vh !important;
-        margin-left: 5.5vw !important;
+    .second-h1 {
+        font-size: 1.3rem !important;
+        margin-top: 2.3vh !important;
+        margin-left: 1vw !important;
 
     }
 
-    .meet-btn{
+    .meet-btn {
         width: 45vw !important;
-        height: 4.5vh;
-        margin-top: 1.5vh !important;
-        font-size: 1rem;
-        border-radius: 100px;
+        height: 5.5vh;
+        margin-top: 2.5vh !important;
+        font-size: 0.95rem;
+        border-radius: 50px;
+        margin-left: 1vw !important;
     }
 }
 </style>

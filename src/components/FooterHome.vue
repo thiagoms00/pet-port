@@ -7,8 +7,22 @@ export default {
             screenWidth: window.innerWidth,
             iconSize: '',
             colsSize : 2,
+            colAux: 1,
         }
     },
+
+    created (){
+        if(this.screenWidth >= 1000){
+            this.iconSize = 'x-large'
+            this.colsSize = 2;
+        }
+        else{
+            this.iconSize = 'x-small'
+            this.colsSize = 3;
+            this.colAux = 2;
+        }
+    },
+
     methods: {
 
         redirectToWebsite(siteName) {
@@ -67,17 +81,7 @@ export default {
             }
         },
     },
-    created (){
-        if(this.screenWidth >= 1000){
-            this.iconSize = 'x-large'
-            this.colsSize = 2;
-        }
-        else{
-            this.iconSize = 'x-small'
-            this.colsSize = 3;
-
-        }
-    }
+    
 }
 </script>
 <template>
@@ -94,7 +98,7 @@ export default {
                 <h1 class="contact-text">Unidade 1 - Santa Tereza</h1>
                 <v-btn class="contact-btn" variant="outlined" @click="openLocation('h1')">Rua Jaspe 8 </v-btn>
             </v-col>
-            <v-col :cols="colsSize+1" class="d-flex flex-column align-center">
+            <v-col :cols="colsSize+colAux" class="d-flex flex-column align-center">
                 <v-icon icon="mdi-map-marker" color="white" size="x-large" rounded="xl"></v-icon>
                 <h1 class="contact-text">Unidade 2 - Sagrada Família</h1>
                 <v-btn class="contact-btn" variant="outlined" @click="openLocation('h2')">Rua João Guelberto filho 1258 </v-btn>
@@ -204,9 +208,10 @@ export default {
 @media (max-width: 800px) {
   .contact-text{
     font-size: 0.4rem;
+    text-align: center;
   }
   .contact-btn{
-    font-size: 0.4rem;
+    font-size: 0.44rem;
     width: auto;
     height: 4vh;
   }

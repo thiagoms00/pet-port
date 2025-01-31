@@ -92,7 +92,7 @@ export default {
                 </div>
 
                 <div class="function-div email-div d-flex mt-3 elevation-10">
-                    <v-icon icon="mdi-email-outline mt-7" color="#fff" size="x-large"></v-icon>
+                    <v-icon icon="mdi-email-outline mt-7" color="#fff" size="x-large" class="contact-icon"></v-icon>
                     <v-col class="text-contact ml-2 " :style="{ 'cursor': 'pointer' }" @click="mudaPagina('form')">
                         <h2 class="contact-title">Envie um e-mail</h2>
                         <h4 class="contact-info">contato@nossomundopet.com.br</h4>
@@ -142,7 +142,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('creche')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche.jpg">
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche1.jpg">
                         </v-img>
                     </div>
 
@@ -152,7 +152,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('banho')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/banho-e-tosa.jpg">
                         </v-img>
                     </div>
@@ -163,7 +163,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelCaes')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho.jpg">
                         </v-img>
                     </div>
@@ -174,7 +174,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelGatos')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho-gatos.jpg">
                         </v-img>
                     </div>
@@ -397,6 +397,10 @@ export default {
         height: 20vh;
     }
 
+    .contact-icon {
+        margin-top: 2.5vh !important;
+    }
+
     .other-container {
         margin-top: 0vh !important;
 
@@ -408,13 +412,13 @@ export default {
 
     .card-anchor {
         margin-top: 1.5vh !important;
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
-    .img-wrapper {
+    .img-wrapper{
         width: 40vw;
+        height: 20vh;
     }
-
 
 }
 </style>

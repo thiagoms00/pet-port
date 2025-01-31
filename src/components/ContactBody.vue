@@ -370,6 +370,7 @@ export default {
     margin-left: 30% !important;
     margin-right: 30% !important;
     letter-spacing: 0vw;
+    text-align: center;
 
 }
 

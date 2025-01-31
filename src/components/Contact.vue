@@ -216,7 +216,11 @@ export default {
     .contact-text {
         font-size: 1.15rem;
         margin-left: 0vw !important;
-        margin-top: 3vh !important;
+        margin-top: 1vh !important;
+    }
+
+    .custom-divider{
+        height: 20vh;
     }
 
     .img-wrapper{
@@ -243,6 +247,10 @@ export default {
 
     .form-div{
         margin-left: 1vw !important;
+    }
+
+    .contact-row{
+        height: 30vh;
     }
 }
 </style>

@@ -143,11 +143,12 @@ export default {
                 <h1 class="change-title">Outros Serviços</h1>
             </v-row>
 
-            <v-row class=" services-row align-center justify-center mt-12">
+            <v-row class="services-row align-center justify-center mt-12">
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('creche')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche.jpg">
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
+                            src="../assets/imgs/creche1.jpg">
                         </v-img>
                     </div>
 
@@ -157,7 +158,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('festa')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/festa-aniversario.jpg">
                         </v-img>
                     </div>
@@ -168,7 +169,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelCaes')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho.jpg">
                         </v-img>
                     </div>
@@ -179,7 +180,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelGatos')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho-gatos.jpg">
                         </v-img>
                     </div>
@@ -200,7 +201,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('creche')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche.jpg">
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img" src="../assets/imgs/creche1.jpg">
                         </v-img>
                     </div>
 
@@ -210,7 +211,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('festa')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/festa-aniversario.jpg">
                         </v-img>
                     </div>
@@ -225,7 +226,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelCaes')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho.jpg">
                         </v-img>
                     </div>
@@ -236,7 +237,7 @@ export default {
                 <div class="img-card d-flex flex-column align-center justify-center elevation-2"
                     @click="mudaPagina('hotelGatos')">
                     <div class="img-wrapper">
-                        <v-img :width="250" aspect-ratio="16/9" cover class="other-img"
+                        <v-img :width="260" :height="200" aspect-ratio="16/9" cover class="other-img"
                             src="../assets/imgs/hotelzinho-gatos.jpg">
                         </v-img>
                     </div>
@@ -364,6 +365,11 @@ export default {
     cursor: pointer;
 }
 
+.img-wrapper {
+    width: auto;
+}
+
+
 .img-card:hover {
     opacity: 1;
 }
@@ -446,11 +452,7 @@ spam {
         font-size: 2rem;
     }
 
-    .img-wrapper {
-        width: 15vw;
-        height: auto;
-    }
-
+   
     .card-anchor {
         margin-top: 3vh !important;
         margin-bottom: 1vh !important;
@@ -464,24 +466,28 @@ spam {
         height: 20vh;
     }
 
-    .other-container{
+    .contact-icon {
+        margin-top: 2.5vh !important;
+    }
+
+    .other-container {
         margin-top: 0vh !important;
 
     }
 
-    .change-title{
+    .change-title {
         margin-top: 0vh !important;
     }
 
     .card-anchor {
         margin-top: 1.5vh !important;
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
     .img-wrapper{
         width: 40vw;
+        height: 20vh;
     }
-
 
 }
 </style>

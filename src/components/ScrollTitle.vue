@@ -84,7 +84,7 @@ export default {
 
 @media (max-width: 800px) {
     .scroll-text {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
 
@@ -102,6 +102,7 @@ export default {
 
     .follow-btn{
         width: auto;
+        padding: 0 4vw !important;
         height: 5vh  !important;
         font-size: 0.55rem;
     }
