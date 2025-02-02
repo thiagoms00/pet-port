@@ -249,6 +249,7 @@ export default {
     .img-wrap{
         width: 20vw !important;
         height: 15vh;
+        margin-top: 5vh;
     }
 
     .img-logo{

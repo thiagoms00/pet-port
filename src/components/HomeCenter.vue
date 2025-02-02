@@ -51,6 +51,9 @@ export default {
     methods: {
         mudaPage(pageName) {
             switch (pageName) {
+                case 'servicos':
+                    this.$router.push('/services');
+                    break;
                 case 'banho':
                     this.$router.push('/services/banho-e-tosa');
                     break;
@@ -215,7 +218,7 @@ export default {
                             </h1>
                         </Transition>
                         <Transition name="firstText">
-                            <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('hotelCaes')">Conheça!</v-btn>
+                            <v-btn v-if="toogle3" class="mt-12 meet-btn" @click="mudaPage('servicos')">Conheça!</v-btn>
                         </Transition>
                     </div>
                 </v-col>

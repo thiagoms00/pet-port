@@ -16,7 +16,13 @@ export default {
             slidePaths1: [marca1, marca2],
             slidePaths2: [marca3, marca4, marca5],
             sizeWidth : window.innerWidth,
+            iconSize : 'x-large'
 
+        }
+    },
+    created(){
+        if(this.sizeWidth < 1000){
+            this.iconSize = 'small'
         }
     },
     methods: {
@@ -46,8 +52,11 @@ export default {
         <v-col cols="6" class="main-col right-col d-flex align-center justify-center">
 
             <!-- Pro carrosel custom -->
-            <v-icon icon="mdi-arrow-left-drop-circle-outline" class="arrow-icon" size="x-large"
+             <div class="icon-wrapper">
+                <v-icon icon="mdi-arrow-left-drop-circle-outline" class="arrow-icon" :size="iconSize"
                 @click="selectedSlide = selectedSlide == 's1' ? 's2' : 's1'"> </v-icon>
+             </div>
+          
             <div class="car-wraper d-flex align-center justify-center">
                 <div v-for="(item, index) in slidePaths1" v-if="selectedSlide == 's1'"
                     class="d-flex image-group first-group">
@@ -67,10 +76,11 @@ export default {
                     </div>
                 </div>
             </div>
-
-            <v-icon icon="mdi-arrow-right-drop-circle-outline" class="arrow-icon" size="x-large"
+            <div class="icon-wrapper">
+                <v-icon icon="mdi-arrow-right-drop-circle-outline" class="arrow-icon" :size="iconSize"
                 @click="selectedSlide = selectedSlide == 's1' ? 's2' : 's1'"> </v-icon>
-
+            </div>
+            
 
 
 
@@ -227,7 +237,6 @@ export default {
         width: 10vw !important;
         height: 8vw;
     }
-
     .brand-img{
         margin-left: 0 !important;
     }
