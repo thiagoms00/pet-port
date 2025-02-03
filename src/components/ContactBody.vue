@@ -195,9 +195,13 @@ export default {
 .text-fale {
     font-family: 'Poppins-Regular';
     font-weight: 600;
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-top: 1vh;
     letter-spacing: 0.1vw;
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+    text-align: center;
+
 }
 
 .text-desc {
@@ -248,7 +252,7 @@ export default {
 .custom-divider {
     border-bottom: 1px solid rgba(82, 82, 82, 0.403);
     width: 20%;
-    margin-left: 13vw;
+    margin-left: 15vw;
     margin-top: 1.5vh;
 }
 
@@ -315,6 +319,8 @@ export default {
 
     .text-fale {
         font-size: 2.2rem !important;
+        margin-left: 20% !important;
+        margin-right: 20% !important;
     }
 
     .text-desc {
