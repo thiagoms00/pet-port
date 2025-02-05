@@ -71,7 +71,12 @@ export default {
             </div>
         </v-row>
 
-        <v-row v-if="mobile" class="data-row mx-auto pa-10 mt-7 elevation-4">
+
+
+
+
+
+        <v-row  class="data-row mx-auto pa-10 mt-7 elevation-4">
             <v-col :cols="leftCol" class="data-left">
                 <h1 class="data-title">Hotelzinho</h1>
                 <h3 class="data-sub">CÃES</h3>
@@ -451,6 +456,12 @@ export default {
     .contact-icon{
         margin-top: 2.5vh !important;
     }
+
+    .text-details{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
 
 }
 </style>

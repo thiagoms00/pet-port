@@ -481,6 +481,11 @@ export default {
         margin-top: 2.5vh !important;
     }
 
+    .text-details{
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
 
 }
 </style>

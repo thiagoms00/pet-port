@@ -38,7 +38,7 @@ export default {
         },
         openWhatsApp() {
             const phoneNumber = '5531999305569'; // Replace with your phone number
-            const message = ''; // Replace with your desired message
+            const message = 'Olá Nosso Mundo Pet! Estou entrando em contato pelo seu website.';
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         },
