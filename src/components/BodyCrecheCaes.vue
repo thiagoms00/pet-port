@@ -280,9 +280,7 @@ export default {
         tolerância até 18h40.
       </p>
       <p class="text-details">
-        Não inclui alimentação. Trazer alimentação, tigelas, manta ou cama e
-        cartão de vacinas. SOMENTE ALUNOS mensalistas PODEM FAZER CHECK-IN ANTES
-        DE 9H – conta 1 diária de creche+ hotel. .
+        Não inclui alimentação.
       </p>
     </v-row>
 
