@@ -1,4 +1,6 @@
 <script>
+import manualPdf from '../assets/manual_tutor_2026.pdf';
+
 export default {
   data() {
     return {
@@ -48,6 +50,14 @@ export default {
         message
       )}`;
       window.open(url, "_blank");
+    },
+    downloadManual() {
+      const link = document.createElement('a');
+      link.href = manualPdf;
+      link.download = 'manual_tutor_2026.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     },
   },
 };
@@ -264,25 +274,43 @@ export default {
       </div>
     </v-row>
 
-    <v-row
-      class="mt-10 mx-auto flex-column align-center justify-center info-row"
-    >
-      <p class="text-details mt-1 text-anual">
-        * Consulte condições para pacotes anuais.
-      </p>
+    <v-container fluid class="manual-container pa-5 ma-0 mt-10">
+      <v-row
+        class="mx-auto flex-column align-center justify-center info-row"
+      >
+        <p class="text-details mt-1 text-anual">
+          * Consulte condições para pacotes anuais.
+        </p>
 
-      <p class="text-details mt-8">
-        Sagrada Familia: Entrada de 7h30-10h; atividades até 16h; saída até
-        18h40, tolerância até 19h10.
-      </p>
-      <p class="text-details pr-6">
-        Santa Tereza: Entrada de 7h50-10h; atividades até 16h; saída até 18h30,
-        tolerância até 18h40.
-      </p>
-      <p class="text-details">
-        Não inclui alimentação.
-      </p>
-    </v-row>
+        <p class="text-details mt-8">
+          Sagrada Familia: Entrada de 7h30-10h; atividades até 16h; saída até
+          18h40, tolerância até 19h10.
+        </p>
+        <p class="text-details pr-6">
+          Santa Tereza: Entrada de 7h50-10h; atividades até 16h; saída até 18h30,
+          tolerância até 18h40.
+        </p>
+        <p class="text-details">
+          Não inclui alimentação.
+        </p>
+      </v-row>
+
+      <v-row class="align-center justify-center mt-10">
+        <p class="manual-message">
+          Preparamos este comunicado para apresentar, de forma clara e transparente, as regras do nosso serviço de creche canina.
+        </p>
+      </v-row>
+      <v-row class="align-center justify-center mt-5 mb-3">
+        <v-btn
+          class="download-btn elevation-2"
+          color="#40469e"
+          @click="downloadManual"
+        >
+          <v-icon icon="mdi-download" size="small" class="mr-2"></v-icon>
+          <span>Baixar Manual do Tutor</span>
+        </v-btn>
+      </v-row>
+    </v-container>
 
     <v-container fluid class="other-container pa-5 ma-0">
       <v-row class="align-center justify-center mt-5">
@@ -535,6 +563,42 @@ export default {
   scale: 1;
 }
 
+/* Manual do Tutor */
+
+.manual-container {
+  background-color: rgba(240, 248, 255, 0.6);
+  border-radius: 10px;
+}
+
+.manual-message {
+  font-family: "Roboto-Regular";
+  font-size: 1.1rem;
+  text-align: center;
+  color: rgb(58, 58, 58);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.pdf-link {
+  text-decoration: none;
+}
+
+.download-btn {
+  font-family: "Roboto-Regular";
+  color: white !important;
+  text-transform: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-btn span {
+  display: flex;
+  align-items: center;
+}
+
 /* Outros serviços */
 
 .other-container {
@@ -709,6 +773,15 @@ export default {
 
   .contact-icon {
     margin-top: 2.5vh !important;
+  }
+
+  .manual-message {
+    font-size: 0.9rem;
+    padding: 0 2vw;
+  }
+
+  .download-btn {
+    font-size: 0.85rem;
   }
 
   .other-container {
